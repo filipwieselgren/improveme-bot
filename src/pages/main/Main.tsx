@@ -3,8 +3,8 @@ import logo from "../../assets/ImproveMe.png";
 const Main = () => {
   return (
     <>
-      <div>
-        <div>
+      <div className="main-wrapper">
+        <div className="logo-wrapper">
           <img src={logo} alt="Logo image" />
         </div>
       </div>
