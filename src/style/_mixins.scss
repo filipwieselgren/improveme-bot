@@ -1,0 +1,20 @@
+@mixin general-btn {
+  background-color: #f8fafb;
+  cursor: pointer;
+  width: 100%;
+  padding: 1rem 2rem;
+  box-shadow: 1px 1px 2px #333;
+  border-radius: 5px;
+  border: none;
+
+  &:hover {
+    box-shadow: 0.5px 0.5px 2px #333;
+  }
+
+  &:active {
+    -webkit-box-shadow: inset 0px 0px 4px #c1c1c1;
+    -moz-box-shadow: inset 0px 0px 4px #c1c1c1;
+    box-shadow: inset 0px 0px 4px #c1c1c1;
+    outline: none;
+  }
+}

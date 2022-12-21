@@ -1,4 +1,5 @@
-@use "./pages/main/style/mainMobile.scss";
+@use "./pages/main/style/_mainMobile.scss";
+@use "./style/_mixins.scss";
 
 * {
   margin: 0;
