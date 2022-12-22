@@ -39,6 +39,13 @@
     box-shadow: inset 0px 0px 4px #c1c1c1;
     outline: none;
   }
+
+  &:focus {
+    -webkit-box-shadow: inset 0px 0px 4px #c1c1c1;
+    -moz-box-shadow: inset 0px 0px 4px #c1c1c1;
+    box-shadow: inset 0px 0px 4px #c1c1c1;
+    outline: none;
+  }
 }
 
 @mixin txt-100 {
