@@ -1,4 +1,9 @@
-const Email = () => {
+import Send from "../../components/buttons/Send";
+interface IEmail {
+  setSuccess: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Email = (props: IEmail) => {
   return (
     <>
       <div className="txt-300 thank-you-txt">
@@ -9,12 +14,13 @@ const Email = () => {
         feature, since they want to understand your request better.
       </div>
       <div className="txt-300">
-        Leave your work e-mail so they can get back to you.{" "}
+        Leave your work e-mail so they can get back to you.
         <span className="txt-400">You can leave it blank as well.</span>
       </div>
       <form action="">
         <input className="email-input" placeholder="Email..."></input>
       </form>
+      <Send setSuccess={props.setSuccess} />
     </>
   );
 };
