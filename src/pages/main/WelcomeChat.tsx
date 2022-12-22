@@ -9,7 +9,7 @@ interface IWelcome {
 
 const WelcomeChat = (props: IWelcome) => {
   return (
-    <ChatWrapper>
+    <ChatWrapper scroll={false}>
       <h3 className="title">Welcome! I'm the improveMe bot.</h3>
       <div className="txt-200">
         I’m here since I assume you will be here quite often, or from time to

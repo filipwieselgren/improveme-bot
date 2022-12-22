@@ -15,6 +15,7 @@ const ChooseErrend = () => {
   const [frStepTwo, setFrStepTwo] = useState(false);
   const [frStepThree, setFrStepThree] = useState(false);
   const [email, setEmail] = useState(false);
+  const [scroll, setScroll] = useState(false);
 
   const handleClick = (errend: string) => {
     if (errend === "fr") {
@@ -29,8 +30,12 @@ const ChooseErrend = () => {
     }
   };
 
+  const handleScroll = () => {
+    setScroll(!scroll);
+  };
+
   return (
-    <ChatWrapper>
+    <ChatWrapper scroll={scroll}>
       <h3 className="title">Time to send some feedback!</h3>
       <div className="txt-300">What would you like to send?</div>
       <div className="btn-wrapper">
@@ -44,11 +49,29 @@ const ChooseErrend = () => {
                 className="errend-img"
               />
             </button>
-            {!br && !gi ? <FrStepOne setFrStepTwo={setFrStepTwo} /> : <></>}
+            {!br && !gi ? (
+              <FrStepOne
+                setFrStepTwo={setFrStepTwo}
+                handleScroll={handleScroll}
+              />
+            ) : (
+              <></>
+            )}
 
-            {frStepTwo ? <FrStepTwo setFrStepThree={setFrStepThree} /> : <></>}
+            {frStepTwo ? (
+              <FrStepTwo
+                setFrStepThree={setFrStepThree}
+                handleScroll={handleScroll}
+              />
+            ) : (
+              <></>
+            )}
 
-            {frStepThree ? <FrStepThree setEmail={setEmail} /> : <></>}
+            {frStepThree ? (
+              <FrStepThree setEmail={setEmail} handleScroll={handleScroll} />
+            ) : (
+              <></>
+            )}
 
             {email ? <Email /> : <></>}
           </>

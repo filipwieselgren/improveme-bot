@@ -3,6 +3,7 @@ import ChangeStep from "../../components/buttons/ChangeStep";
 
 interface IStepTwo {
   setFrStepThree: React.Dispatch<React.SetStateAction<boolean>>;
+  handleScroll(): void;
 }
 const FrStepTwo = (props: IStepTwo) => {
   const [txtAreaValue, setTxtAreaValue] = useState("");
@@ -31,6 +32,7 @@ const FrStepTwo = (props: IStepTwo) => {
           id: "",
           part: " ",
         }}
+        handleScroll={props.handleScroll}
       />
     </>
   );

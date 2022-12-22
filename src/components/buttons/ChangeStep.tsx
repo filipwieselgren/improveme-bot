@@ -6,6 +6,7 @@ interface IChange {
   stepNumber: number;
   txtAreaValue: string;
   part: IParts;
+  handleScroll(): void;
 }
 
 const ChangeStep = (props: IChange) => {
@@ -20,6 +21,7 @@ const ChangeStep = (props: IChange) => {
       console.log("No part");
       return;
     }
+    props.handleScroll();
     props.setFrStep(true);
   };
   return (

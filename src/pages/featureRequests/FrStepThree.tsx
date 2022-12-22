@@ -2,9 +2,11 @@ import { useState } from "react";
 import ChangeStep from "../../components/buttons/ChangeStep";
 import { IParts } from "../../models/IPart";
 import partMock from "../../data/partMock";
+import Complete from "../../components/buttons/Complete";
 
 interface IStepThree {
   setEmail: React.Dispatch<React.SetStateAction<boolean>>;
+  handleScroll(): void;
 }
 const FrStepThree = (props: IStepThree) => {
   const [parts, setParts] = useState<IParts[]>(partMock.parts);
@@ -31,12 +33,7 @@ const FrStepThree = (props: IStepThree) => {
           );
         })}
       </div>
-      <ChangeStep
-        setFrStep={props.setEmail}
-        stepNumber={4}
-        txtAreaValue={" "}
-        part={chosePart}
-      />
+      <Complete setEmail={props.setEmail} handleScroll={props.handleScroll} />
     </>
   );
 };
