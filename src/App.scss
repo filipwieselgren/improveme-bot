@@ -1,5 +1,6 @@
 @use "./pages/main/style/_mainMobile.scss";
-@use "./style/_mixins.scss";
+@use "./style/_mixins.scss" as m;
+@use "./pages/featureRequests/style/featureReguests";
 
 * {
   margin: 0;
@@ -18,4 +19,49 @@ body {
 
 li {
   list-style: none;
+}
+
+.chat-wrapper {
+  @include m.chat-wrapper;
+}
+
+.title {
+  @include m.title;
+}
+
+.txt-200 {
+  @include m.txt-200;
+  padding-bottom: 2rem;
+}
+
+.txt-300 {
+  @include m.txt-300;
+  padding-bottom: 1rem;
+}
+
+.txt-400 {
+  @include m.txt-400;
+}
+
+.step-title {
+  padding-top: 2rem;
+}
+
+.txt-area {
+  @include m.txt-area;
+}
+
+.change-step {
+  @include m.change-step;
+}
+
+.parts-btn-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1rem;
+
+  .part-btn {
+    @include m.part-btn;
+  }
 }

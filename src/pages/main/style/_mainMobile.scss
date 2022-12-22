@@ -17,65 +17,40 @@
     }
   }
 
-  .chat-wrapper {
-    border: solid 1px;
-    width: 30rem;
-    margin: 0 1rem 1rem 0;
-    border-radius: 10px;
-    padding: 1rem;
-    height: 40rem;
+  .errend-ul {
+    padding-bottom: 4rem;
+  }
 
-    .title {
-      font-weight: 300;
-      font-size: 2rem;
-      padding-bottom: 2rem;
-    }
+  .errend-li {
+    padding-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+  }
 
-    .txt-200 {
-      font-weight: 200;
-      padding-bottom: 2rem;
-    }
+  .errend-img {
+    width: 3rem;
+    margin-right: 1rem;
+  }
 
-    .txt-300 {
-      font-weight: 300;
-      padding-bottom: 1rem;
-    }
+  .close-btn {
+    @include m.general-btn;
+  }
 
-    .errend-ul {
-      padding-bottom: 4rem;
-    }
+  .btn-wrapper {
+    display: flex;
+    flex-direction: column;
 
-    .errend-li {
-      padding-bottom: 1.5rem;
+    .errend-btn {
       display: flex;
       align-items: center;
-    }
-
-    .errend-img {
-      width: 3rem;
-      margin-right: 1rem;
-    }
-
-    .close-btn {
+      justify-content: center;
+      position: relative;
+      margin: 0.5rem 0;
       @include m.general-btn;
-    }
 
-    .btn-wrapper {
-      display: flex;
-      flex-direction: column;
-
-      .errend-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        margin: 0.5rem 0;
-        @include m.general-btn;
-
-        img {
-          position: absolute;
-          right: 1%;
-        }
+      img {
+        position: absolute;
+        right: 1%;
       }
     }
   }

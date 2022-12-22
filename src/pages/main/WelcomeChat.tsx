@@ -15,7 +15,7 @@ const WelcomeChat = (props: IWelcome) => {
         I’m here since I assume you will be here quite often, or from time to
         time?
       </div>
-      <div className="txt-300">By clicking on me you can:</div>
+      <div className="txt-300">By clicking on my face you can:</div>
 
       <ul className="errend-ul">
         <li className="errend-li">

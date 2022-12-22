@@ -18,3 +18,69 @@
     outline: none;
   }
 }
+
+@mixin part-btn {
+  padding: 0.5rem 2rem;
+  background-color: #f8fafb;
+  cursor: pointer;
+  box-shadow: 1px 1px 2px #333;
+  border-radius: 2px;
+  border: none;
+
+  &:hover {
+    box-shadow: 0.5px 0.5px 2px #333;
+  }
+
+  &:active {
+    -webkit-box-shadow: inset 0px 0px 4px #c1c1c1;
+    -moz-box-shadow: inset 0px 0px 4px #c1c1c1;
+    box-shadow: inset 0px 0px 4px #c1c1c1;
+    outline: none;
+  }
+}
+
+@mixin txt-100 {
+  font-weight: 100;
+}
+
+@mixin txt-200 {
+  font-weight: 200;
+}
+@mixin txt-300 {
+  font-weight: 300;
+}
+@mixin txt-400 {
+  font-weight: 400;
+}
+
+@mixin title {
+  font-weight: 300;
+  font-size: 2rem;
+  padding-bottom: 2rem;
+}
+
+@mixin chat-wrapper {
+  width: 30rem;
+  margin: 0 1rem 1rem 0;
+  border-radius: 10px;
+  padding: 1rem;
+  height: 40rem;
+  overflow-y: scroll;
+  box-shadow: 1px 1px 5px rgba(51, 51, 51, 0.5);
+}
+
+@mixin txt-area {
+  resize: none;
+  width: 100%;
+  padding: 0.5rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  border: solid 0.2px #333;
+  border-radius: 5px;
+}
+
+@mixin change-step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
