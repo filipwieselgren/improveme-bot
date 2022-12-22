@@ -10,6 +10,9 @@ const FrStepOne = (props: IStepOne) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setTxtAreaValue(e.target.value);
+
+    if (txtAreaValue.length !== 0) {
+    }
   };
   return (
     <>
@@ -39,6 +42,10 @@ const FrStepOne = (props: IStepOne) => {
         setFrStep={props.setFrStepTwo}
         stepNumber={2}
         txtAreaValue={txtAreaValue}
+        part={{
+          id: "",
+          part: " ",
+        }}
       />
     </>
   );

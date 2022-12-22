@@ -4,17 +4,21 @@ import { IParts } from "../../models/IPart";
 import partMock from "../../data/partMock";
 
 interface IStepThree {
-  setFrStepFour: React.Dispatch<React.SetStateAction<boolean>>;
+  setEmail: React.Dispatch<React.SetStateAction<boolean>>;
 }
 const FrStepThree = (props: IStepThree) => {
   const [parts, setParts] = useState<IParts[]>(partMock.parts);
+  const [chosePart, setChosePart] = useState<IParts>({
+    id: "",
+    part: "",
+  });
 
   const getPart = (part: IParts) => {
-    console.log(part);
+    setChosePart(part);
   };
   return (
     <>
-      <h4 className="txt-400 step-title">Step 1:</h4>
+      <h4 className="txt-400 step-title">Step 3:</h4>
       <div className="txt-300 ">
         In which category/part of the platform does the feature belongs to?
       </div>
@@ -28,9 +32,10 @@ const FrStepThree = (props: IStepThree) => {
         })}
       </div>
       <ChangeStep
-        setFrStep={props.setFrStepFour}
+        setFrStep={props.setEmail}
         stepNumber={4}
-        txtAreaValue={""}
+        txtAreaValue={" "}
+        part={chosePart}
       />
     </>
   );

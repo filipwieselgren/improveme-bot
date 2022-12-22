@@ -6,6 +6,7 @@ import { useState } from "react";
 import FrStepOne from "../featureRequests/FrStepOne";
 import FrStepTwo from "../featureRequests/FrStepTwo";
 import FrStepThree from "../featureRequests/FrStepThree";
+import Email from "../featureRequests/Email";
 
 const ChooseErrend = () => {
   const [fr, setFr] = useState(true);
@@ -13,7 +14,7 @@ const ChooseErrend = () => {
   const [gi, setGi] = useState(true);
   const [frStepTwo, setFrStepTwo] = useState(false);
   const [frStepThree, setFrStepThree] = useState(false);
-  const [frStepFour, setFrStepFour] = useState(false);
+  const [email, setEmail] = useState(false);
 
   const handleClick = (errend: string) => {
     if (errend === "fr") {
@@ -44,12 +45,12 @@ const ChooseErrend = () => {
               />
             </button>
             {!br && !gi ? <FrStepOne setFrStepTwo={setFrStepTwo} /> : <></>}
+
             {frStepTwo ? <FrStepTwo setFrStepThree={setFrStepThree} /> : <></>}
-            {frStepThree ? (
-              <FrStepThree setFrStepFour={setFrStepFour} />
-            ) : (
-              <></>
-            )}
+
+            {frStepThree ? <FrStepThree setEmail={setEmail} /> : <></>}
+
+            {email ? <Email /> : <></>}
           </>
         ) : (
           <></>

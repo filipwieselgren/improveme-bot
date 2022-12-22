@@ -27,6 +27,10 @@ const FrStepTwo = (props: IStepTwo) => {
         setFrStep={props.setFrStepThree}
         stepNumber={3}
         txtAreaValue={txtAreaValue}
+        part={{
+          id: "",
+          part: " ",
+        }}
       />
     </>
   );
