@@ -11,9 +11,6 @@ const FrStepOne = (props: IStepOne) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setTxtAreaValue(e.target.value);
-
-    if (txtAreaValue.length !== 0) {
-    }
   };
   return (
     <>
