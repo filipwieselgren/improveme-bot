@@ -46,7 +46,8 @@ const ChooseErrend = () => {
             {fr ? (
               <>
                 <button
-                  className="errend-btn f-errend"
+                  className="errend-btn"
+                  id="f-errend"
                   onClick={() => handleClick("fr")}
                 >
                   <span> Feature request</span>
@@ -91,7 +92,8 @@ const ChooseErrend = () => {
 
             {br ? (
               <button
-                className="errend-btn b-errend"
+                className="errend-btn"
+                id="b-errend"
                 onClick={() => handleClick("br")}
               >
                 <span> Bug report </span>
@@ -102,7 +104,8 @@ const ChooseErrend = () => {
             )}
             {gi ? (
               <button
-                className="errend-btn g-errend"
+                className="errend-btn"
+                id="g-errend"
                 onClick={() => handleClick("gi")}
               >
                 <span> Generel improvment</span>
