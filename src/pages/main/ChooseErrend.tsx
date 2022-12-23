@@ -46,7 +46,7 @@ const ChooseErrend = () => {
             {fr ? (
               <>
                 <button
-                  className="errend-btn"
+                  className="errend-btn f-errend"
                   onClick={() => handleClick("fr")}
                 >
                   <span> Feature request</span>
@@ -90,7 +90,10 @@ const ChooseErrend = () => {
             )}
 
             {br ? (
-              <button className="errend-btn" onClick={() => handleClick("br")}>
+              <button
+                className="errend-btn b-errend"
+                onClick={() => handleClick("br")}
+              >
                 <span> Bug report </span>
                 <img src={bug} alt="image of a bug" className="errend-img" />
               </button>
@@ -98,7 +101,10 @@ const ChooseErrend = () => {
               <></>
             )}
             {gi ? (
-              <button className="errend-btn" onClick={() => handleClick("gi")}>
+              <button
+                className="errend-btn g-errend"
+                onClick={() => handleClick("gi")}
+              >
                 <span> Generel improvment</span>
                 <img
                   src={increase}
