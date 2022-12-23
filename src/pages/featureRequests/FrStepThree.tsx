@@ -11,8 +11,13 @@ interface IStepThree {
 const FrStepThree = (props: IStepThree) => {
   const [parts, setParts] = useState<IParts[]>(partMock.parts);
   const [chosePart, setChosePart] = useState<string>("");
+  const [sendPart, setSendPart] = useState<IParts>({
+    id: "",
+    part: "",
+  });
 
   const getPart = (part: IParts) => {
+    setSendPart(part);
     setChosePart(part.id);
   };
   return (
@@ -35,7 +40,11 @@ const FrStepThree = (props: IStepThree) => {
           );
         })}
       </div>
-      <Complete setEmail={props.setEmail} handleScroll={props.handleScroll} />
+      <Complete
+        setEmail={props.setEmail}
+        handleScroll={props.handleScroll}
+        sendPart={sendPart}
+      />
     </>
   );
 };

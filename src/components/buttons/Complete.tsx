@@ -1,10 +1,18 @@
+import { IParts } from "../../models/IPart";
+
 interface IComplete {
   setEmail: React.Dispatch<React.SetStateAction<boolean>>;
   handleScroll(): void;
+  sendPart: IParts;
 }
 
 const Complete = (props: IComplete) => {
   const handleCompleteClick = () => {
+    if (props.sendPart.id === "" && props.sendPart.part === "") {
+      console.log("No part added");
+
+      return;
+    }
     props.setEmail(true);
     props.handleScroll();
   };
