@@ -48,6 +48,18 @@
   }
 }
 
+.clicked-part {
+  padding: 0.5rem 2rem;
+  background-color: #f8fafb;
+  cursor: pointer;
+  border-radius: 2px;
+  border: none;
+  -webkit-box-shadow: inset 0px 0px 4px #c1c1c1;
+  -moz-box-shadow: inset 0px 0px 4px #c1c1c1;
+  box-shadow: inset 0px 0px 4px #c1c1c1;
+  outline: none;
+}
+
 @mixin txt-100 {
   font-weight: 100;
 }
