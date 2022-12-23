@@ -1,8 +1,8 @@
 const express = require("express");
 const app = express();
 
-app.get("/", (res, req) => {
-  res.status(200).send("Hello from the server");
+app.get("/", (req, res) => {
+  res.status(200).json({ message: "Hello from the server" });
 });
 
 const port = 8080;
