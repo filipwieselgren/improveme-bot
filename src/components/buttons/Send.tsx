@@ -9,7 +9,7 @@ const Send = (props: ISend) => {
   return (
     <button
       className="change-step"
-      id="#send-btn"
+      id="send-btn"
       onClick={() => handleSendClick()}
     >
       Send request
