@@ -7,7 +7,11 @@ const Send = (props: ISend) => {
     props.setSuccess(true);
   };
   return (
-    <button className="change-step" onClick={() => handleSendClick()}>
+    <button
+      className="change-step"
+      id="#send-btn"
+      onClick={() => handleSendClick()}
+    >
       Send request
     </button>
   );

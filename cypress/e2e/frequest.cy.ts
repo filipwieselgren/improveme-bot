@@ -22,6 +22,14 @@ describe("renders the bot and fill in data for feature request", () => {
       .get("#text2")
       .type("Test")
       .get("#step2")
+      .click()
+      .get("#part1")
+      .click()
+      .get("#complete-btn")
+      .click()
+      .get(".email-input")
+      .type("filip@gmail.com")
+      .get("#send-btn")
       .click();
   });
 });
