@@ -27,7 +27,12 @@ const FrStepThree = (props: IStepThree) => {
       <div className="parts-btn-wrapper">
         {parts.map((p) => {
           return (
-            <button key={p.id} className="part-btn" onClick={() => getPart(p)}>
+            <button
+              key={p.id}
+              className="part-btn"
+              id={`part${p.id}`}
+              onClick={() => getPart(p)}
+            >
               {p.part}
             </button>
           );
