@@ -30,7 +30,7 @@ const FrStepOne = (props: IStepOne) => {
         <textarea
           className="txt-area"
           name=""
-          id=""
+          id="text1"
           cols={30}
           rows={10}
           onChange={(e) => handleChange(e)}
@@ -38,7 +38,7 @@ const FrStepOne = (props: IStepOne) => {
       </form>
       <ChangeStep
         setFrStep={props.setFrStepTwo}
-        stepNumber={2}
+        stepNumber={1}
         txtAreaValue={txtAreaValue}
         part={{
           id: "",

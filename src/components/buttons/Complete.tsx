@@ -10,7 +10,11 @@ const Complete = (props: IComplete) => {
   };
   return (
     <>
-      <button className="change-step" onClick={handleCompleteClick}>
+      <button
+        className="change-step"
+        id="complete-btn"
+        onClick={handleCompleteClick}
+      >
         Complete
       </button>
     </>

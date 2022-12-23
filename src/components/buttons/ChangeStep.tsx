@@ -26,7 +26,11 @@ const ChangeStep = (props: IChange) => {
   };
   return (
     <>
-      <button className="change-step" onClick={changeStep}>
+      <button
+        className="change-step"
+        id={`step${props.stepNumber}`}
+        onClick={changeStep}
+      >
         Go to step {props.stepNumber} <BsArrowRight />
       </button>
     </>
