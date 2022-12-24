@@ -48,7 +48,7 @@
   }
 }
 
-.clicked-part {
+@mixin clicked-part {
   padding: 0.5rem 2rem;
   background-color: #f8fafb;
   cursor: pointer;

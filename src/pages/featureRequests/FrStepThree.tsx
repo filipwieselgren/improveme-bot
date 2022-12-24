@@ -10,7 +10,7 @@ interface IStepThree {
 }
 const FrStepThree = (props: IStepThree) => {
   const [parts, setParts] = useState<IParts[]>(partMock.parts);
-  const [chosePart, setChosePart] = useState<string>("");
+  const [chosePartId, setChosePartId] = useState<string>("");
   const [sendPart, setSendPart] = useState<IParts>({
     id: "",
     part: "",
@@ -18,7 +18,7 @@ const FrStepThree = (props: IStepThree) => {
 
   const getPart = (part: IParts) => {
     setSendPart(part);
-    setChosePart(part.id);
+    setChosePartId(part.id);
   };
   return (
     <>
@@ -31,7 +31,7 @@ const FrStepThree = (props: IStepThree) => {
           return (
             <button
               key={p.id}
-              className={chosePart === p.id ? "clicked-part" : "part-btn"}
+              className={chosePartId === p.id ? "clicked-part" : "part-btn"}
               id={`part${p.id}`}
               onClick={() => getPart(p)}
             >

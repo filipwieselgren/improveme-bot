@@ -64,6 +64,10 @@ li {
   .part-btn {
     @include m.part-btn;
   }
+
+  .clicked-part {
+    @include m.clicked-part;
+  }
 }
 
 .email-input {
