@@ -39,8 +39,10 @@ const FrStepOne = (props: IStepOne) => {
           className="txt-area"
           name=""
           id="text1"
+          placeholder="e.g. Add an alphabetic sort function to dropdowns."
           cols={30}
           rows={10}
+          onFocus={props.handleScroll}
           onChange={(e) => handleChange(e)}
         ></textarea>
       </form>

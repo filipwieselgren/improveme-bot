@@ -28,7 +28,7 @@ const Email = (props: IEmail) => {
         Leave your work e-mail so they can get back to you.
         <span className="txt-400">You can leave it blank as well.</span>
       </div>
-      <form action="">
+      <form>
         <input
           className="email-input"
           placeholder="Email..."

@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { FeatureRequestModel } = require("./FeatureRequest.js");
 
 const partSchema = new mongoose.Schema({
   part: { type: String, required: true },

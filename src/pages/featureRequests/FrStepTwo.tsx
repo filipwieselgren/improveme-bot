@@ -28,6 +28,7 @@ const FrStepTwo = (props: IStepTwo) => {
           className="txt-area"
           name=""
           id="text2"
+          placeholder="e.g. It's hard to find in the dropdowns. This would make it a lot easier to find."
           cols={30}
           rows={10}
           onChange={(e) => handleChange(e)}
