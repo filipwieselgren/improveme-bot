@@ -5,43 +5,43 @@ const parts: IPart = {
   parts: [
     {
       id: "1",
-      part: "Part 1",
+      part: "Part1",
     },
     {
       id: "2",
-      part: "Part 2",
+      part: "Part2",
     },
     {
       id: "3",
-      part: "Part 3",
+      part: "Part3",
     },
     {
       id: "4",
-      part: "Part 4",
+      part: "Part4",
     },
     {
       id: "5",
-      part: "Part 5",
+      part: "Part5",
     },
     {
       id: "6",
-      part: "Part 6",
+      part: "Part6",
     },
     {
       id: "7",
-      part: "Part 7",
+      part: "Part7",
     },
     {
       id: "8",
-      part: "Part 8",
+      part: "Part8",
     },
     {
       id: "9",
-      part: "Part 9",
+      part: "Part9",
     },
     {
       id: "10",
-      part: "Part 10",
+      part: "Part10",
     },
   ],
 };

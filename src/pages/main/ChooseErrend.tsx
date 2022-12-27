@@ -8,6 +8,7 @@ import FrStepTwo from "../featureRequests/FrStepTwo";
 import FrStepThree from "../featureRequests/FrStepThree";
 import Email from "../featureRequests/Email";
 import Success from "../../components/text/Success";
+import IFeatureRequest from "../../models/IFeatureRequest";
 
 const ChooseErrend = () => {
   const [fr, setFr] = useState(true);
@@ -18,7 +19,12 @@ const ChooseErrend = () => {
   const [email, setEmail] = useState(false);
   const [scroll, setScroll] = useState(false);
   const [success, setSuccess] = useState(false);
-
+  const [featureRequest, setFeatureRequest] = useState<IFeatureRequest>({
+    description: "",
+    solvesWhat: "",
+    part: "",
+    email: "",
+  });
   const handleClick = (errend: string) => {
     if (errend === "fr") {
       setBr(false);
@@ -35,6 +41,8 @@ const ChooseErrend = () => {
   const handleScroll = () => {
     setScroll(!scroll);
   };
+
+  console.log("featureRequest:", featureRequest);
 
   return (
     <ChatWrapper scroll={scroll}>
@@ -61,6 +69,7 @@ const ChooseErrend = () => {
                   <FrStepOne
                     setFrStepTwo={setFrStepTwo}
                     handleScroll={handleScroll}
+                    setFeatureRequest={setFeatureRequest}
                   />
                 ) : (
                   <></>
@@ -70,6 +79,8 @@ const ChooseErrend = () => {
                   <FrStepTwo
                     setFrStepThree={setFrStepThree}
                     handleScroll={handleScroll}
+                    setFeatureRequest={setFeatureRequest}
+                    featureRequest={featureRequest}
                   />
                 ) : (
                   <></>
@@ -79,12 +90,22 @@ const ChooseErrend = () => {
                   <FrStepThree
                     setEmail={setEmail}
                     handleScroll={handleScroll}
+                    setFeatureRequest={setFeatureRequest}
+                    featureRequest={featureRequest}
                   />
                 ) : (
                   <></>
                 )}
 
-                {email ? <Email setSuccess={setSuccess} /> : <></>}
+                {email ? (
+                  <Email
+                    setSuccess={setSuccess}
+                    setFeatureRequest={setFeatureRequest}
+                    featureRequest={featureRequest}
+                  />
+                ) : (
+                  <></>
+                )}
               </>
             ) : (
               <></>

@@ -3,10 +3,13 @@ import ChangeStep from "../../components/buttons/ChangeStep";
 import { IParts } from "../../models/IPart";
 import partMock from "../../data/partMock";
 import Complete from "../../components/buttons/Complete";
+import IFeatureRequest from "../../models/IFeatureRequest";
 
 interface IStepThree {
   setEmail: React.Dispatch<React.SetStateAction<boolean>>;
   handleScroll(): void;
+  setFeatureRequest: React.Dispatch<React.SetStateAction<IFeatureRequest>>;
+  featureRequest: IFeatureRequest;
 }
 const FrStepThree = (props: IStepThree) => {
   const [parts, setParts] = useState<IParts[]>(partMock.parts);
@@ -19,6 +22,12 @@ const FrStepThree = (props: IStepThree) => {
   const getPart = (part: IParts) => {
     setSendPart(part);
     setChosePartId(part.id);
+    props.setFeatureRequest({
+      description: props.featureRequest.description,
+      solvesWhat: props.featureRequest.solvesWhat,
+      part: part.part,
+      email: "",
+    });
   };
   return (
     <>

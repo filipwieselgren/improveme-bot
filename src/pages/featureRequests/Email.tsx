@@ -1,9 +1,20 @@
 import Send from "../../components/buttons/Send";
+import IFeatureRequest from "../../models/IFeatureRequest";
 interface IEmail {
   setSuccess: React.Dispatch<React.SetStateAction<boolean>>;
+  setFeatureRequest: React.Dispatch<React.SetStateAction<IFeatureRequest>>;
+  featureRequest: IFeatureRequest;
 }
 
 const Email = (props: IEmail) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    props.setFeatureRequest({
+      description: props.featureRequest.description,
+      solvesWhat: props.featureRequest.solvesWhat,
+      part: props.featureRequest.part,
+      email: e.target.value,
+    });
+  };
   return (
     <>
       <div className="txt-300 thank-you-txt">
@@ -18,9 +29,16 @@ const Email = (props: IEmail) => {
         <span className="txt-400">You can leave it blank as well.</span>
       </div>
       <form action="">
-        <input className="email-input" placeholder="Email..."></input>
+        <input
+          className="email-input"
+          placeholder="Email..."
+          onChange={(e) => handleChange(e)}
+        ></input>
       </form>
-      <Send setSuccess={props.setSuccess} />
+      <Send
+        setSuccess={props.setSuccess}
+        featureRequest={props.featureRequest}
+      />
     </>
   );
 };

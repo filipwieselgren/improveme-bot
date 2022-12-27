@@ -1,14 +1,23 @@
 import { useState } from "react";
 import ChangeStep from "../../components/buttons/ChangeStep";
+import IFeatureRequest from "../../models/IFeatureRequest";
 
 interface IStepTwo {
   setFrStepThree: React.Dispatch<React.SetStateAction<boolean>>;
   handleScroll(): void;
+  setFeatureRequest: React.Dispatch<React.SetStateAction<IFeatureRequest>>;
+  featureRequest: IFeatureRequest;
 }
 const FrStepTwo = (props: IStepTwo) => {
   const [txtAreaValue, setTxtAreaValue] = useState("");
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setTxtAreaValue(e.target.value);
+    props.setFeatureRequest({
+      description: props.featureRequest.description,
+      solvesWhat: e.target.value,
+      part: "",
+      email: "",
+    });
   };
   return (
     <>
