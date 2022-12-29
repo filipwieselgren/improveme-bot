@@ -8,9 +8,8 @@ interface IComplete {
 
 const Complete = (props: IComplete) => {
   const handleCompleteClick = () => {
-    if (props.sendPart.id === "" && props.sendPart.part === "") {
+    if (props.sendPart.part === "") {
       console.log("No part added");
-
       return;
     }
     props.setEmail(true);

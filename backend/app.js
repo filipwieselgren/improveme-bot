@@ -15,22 +15,22 @@ const PartModel = require("./models/Parts.js");
 const FeatureRequestModel = require("./models/FeatureRequest.js");
 
 app.post("/api/v1/featurerequest", async (req, res) => {
-  const featureRequest = await req.body;
-  const fr = new FeatureRequestModel(featureRequest);
+  const dataFromBody = await req.body;
+  const createFeatuRerequest = new FeatureRequestModel(dataFromBody);
 
-  await fr.save();
+  await createFeatuRerequest.save();
 
   const parts = await PartModel.findOne({ part: req.body.part });
-  const newFr = await FeatureRequestModel.findOne({
+  const newFeatureRequest = await FeatureRequestModel.findOne({
     description: req.body.description,
   });
 
   let checkDuplicate = parts.featureRequest.filter((fr) => {
-    return fr.description === newFr.description;
+    return fr.description === newFeatureRequest.description;
   });
 
   if (checkDuplicate.length === 0) {
-    parts.featureRequest.push(newFr);
+    parts.featureRequest.push(newFeatureRequest);
     await parts.save();
     res.status(200).send(parts);
   } else {

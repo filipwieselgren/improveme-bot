@@ -4,12 +4,17 @@ import { IParts } from "../../models/IPart";
 import partMock from "../../data/partMock";
 import Complete from "../../components/buttons/Complete";
 import IFeatureRequest from "../../models/IFeatureRequest";
+import { IBugReport } from "../../models/IBugReport";
 
 interface IStepThree {
-  setEmail: React.Dispatch<React.SetStateAction<boolean>>;
+  setStep: React.Dispatch<React.SetStateAction<boolean>>;
   handleScroll(): void;
   setFeatureRequest: React.Dispatch<React.SetStateAction<IFeatureRequest>>;
+  setBugReport: React.Dispatch<React.SetStateAction<IBugReport>>;
   featureRequest: IFeatureRequest;
+  bugReport: IBugReport;
+  stepDescription: string;
+  kindOfErrend: string;
 }
 const FrStepThree = (props: IStepThree) => {
   const [parts, setParts] = useState<IParts[]>(partMock.parts);
@@ -22,19 +27,28 @@ const FrStepThree = (props: IStepThree) => {
   const getPart = (part: IParts) => {
     setSendPart(part);
     setChosePartId(part.id);
-    props.setFeatureRequest({
-      description: props.featureRequest.description,
-      solvesWhat: props.featureRequest.solvesWhat,
-      part: part.part,
-      email: "",
-    });
+    if (props.kindOfErrend === "fr") {
+      props.setFeatureRequest({
+        description: props.featureRequest.description,
+        solvesWhat: props.featureRequest.solvesWhat,
+        part: part.part,
+        email: "",
+      });
+    } else if (props.kindOfErrend === "br") {
+      props.setBugReport({
+        description: props.bugReport.description,
+        background: props.bugReport.background,
+        part: part.part,
+        reproduce: "",
+        files: [],
+        email: "",
+      });
+    }
   };
   return (
     <>
       <h4 className="txt-400 step-title">Step 3:</h4>
-      <div className="txt-300 ">
-        In which category/part of the platform does the feature belongs to?
-      </div>
+      <div className="txt-300 ">{props.stepDescription}</div>
       <div className="parts-btn-wrapper">
         {parts.map((p) => {
           return (
@@ -49,11 +63,21 @@ const FrStepThree = (props: IStepThree) => {
           );
         })}
       </div>
-      <Complete
-        setEmail={props.setEmail}
-        handleScroll={props.handleScroll}
-        sendPart={sendPart}
-      />
+      {props.kindOfErrend === "br" ? (
+        <ChangeStep
+          setFrStep={props.setStep}
+          stepNumber={4}
+          txtAreaValue={" "}
+          part={sendPart}
+          handleScroll={props.handleScroll}
+        />
+      ) : (
+        <Complete
+          setEmail={props.setStep}
+          handleScroll={props.handleScroll}
+          sendPart={sendPart}
+        />
+      )}
     </>
   );
 };

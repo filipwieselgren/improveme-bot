@@ -1,8 +1,10 @@
 import Send from "../../components/buttons/Send";
+import { IBugReport } from "../../models/IBugReport";
 import IFeatureRequest from "../../models/IFeatureRequest";
 interface IEmail {
   setSuccess: React.Dispatch<React.SetStateAction<boolean>>;
   setFeatureRequest: React.Dispatch<React.SetStateAction<IFeatureRequest>>;
+  setBugReport: React.Dispatch<React.SetStateAction<IBugReport>>;
   featureRequest: IFeatureRequest;
 }
 

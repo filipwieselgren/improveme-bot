@@ -1,41 +1,58 @@
 import { useState } from "react";
 import ChangeStep from "../../components/buttons/ChangeStep";
+import { IBugReport } from "../../models/IBugReport";
 import IFeatureRequest from "../../models/IFeatureRequest";
 
 interface IStepTwo {
-  setFrStepThree: React.Dispatch<React.SetStateAction<boolean>>;
+  setStep: React.Dispatch<React.SetStateAction<boolean>>;
   handleScroll(): void;
   setFeatureRequest: React.Dispatch<React.SetStateAction<IFeatureRequest>>;
+  setBugReport: React.Dispatch<React.SetStateAction<IBugReport>>;
   featureRequest: IFeatureRequest;
+  bugReport: IBugReport;
+  stepDescription: string;
+  placeHolder: string;
+  kindOfErrend: string;
 }
-const FrStepTwo = (props: IStepTwo) => {
+const StepTwo = (props: IStepTwo) => {
   const [txtAreaValue, setTxtAreaValue] = useState("");
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setTxtAreaValue(e.target.value);
-    props.setFeatureRequest({
-      description: props.featureRequest.description,
-      solvesWhat: e.target.value,
-      part: "",
-      email: "",
-    });
+    if (props.kindOfErrend === "fr") {
+      props.setFeatureRequest({
+        description: props.featureRequest.description,
+        solvesWhat: e.target.value,
+        part: "",
+        email: "",
+      });
+    } else if (props.kindOfErrend === "br") {
+      props.setBugReport({
+        description: props.bugReport.description,
+        background: e.target.value,
+        part: "",
+        reproduce: "",
+        files: [],
+        email: "",
+      });
+    }
   };
   return (
     <>
       <h4 className="txt-400 step-title">Step 2:</h4>
-      <div className="txt-300">What problem does the function solve?</div>
+      <div className="txt-300">{props.stepDescription}</div>
       <form action="">
         <textarea
           className="txt-area"
           name=""
           id="text2"
-          placeholder="e.g. It's hard to find in the dropdowns. This would make it a lot easier to find."
+          placeholder={props.placeHolder}
           cols={30}
           rows={10}
           onChange={(e) => handleChange(e)}
         ></textarea>
       </form>
       <ChangeStep
-        setFrStep={props.setFrStepThree}
+        setFrStep={props.setStep}
         stepNumber={2}
         txtAreaValue={txtAreaValue}
         part={{
@@ -48,4 +65,4 @@ const FrStepTwo = (props: IStepTwo) => {
   );
 };
 
-export default FrStepTwo;
+export default StepTwo;
