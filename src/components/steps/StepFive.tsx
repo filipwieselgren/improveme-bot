@@ -59,7 +59,12 @@ const StepFive = (props: IStepFive) => {
       <div className="txt-300">{props.stepDescription}</div>
       <div className="file-card">
         <div className="file-inputs">
-          <input type="file" multiple onChange={(e) => uploadHandler(e)} />
+          <input
+            type="file"
+            accept="image/jpg, image/jpeg, image/png, application/pdf, video/mp4, video/avi, video/mpeg"
+            multiple
+            onChange={(e) => uploadHandler(e)}
+          />
           <button>
             <i>
               <BsPlusCircle className="react-icon" />
@@ -68,7 +73,7 @@ const StepFive = (props: IStepFive) => {
           </button>
         </div>
         <p>Support files</p>
-        <p>PDF, JPG, PNG</p>
+        <p>PNG, JPG</p>
       </div>
       {fileAlreadyExists ? (
         <p className="file-exists">You have already uploaded this file.</p>
