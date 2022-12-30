@@ -36,7 +36,6 @@ const StepFive = (props: IStepFive) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    // Check if the file already exists in the files array
     const fileExists = files.some((f: any) => f.name === file.name);
     if (fileExists) {
       setFileAlreadyExists(true);
