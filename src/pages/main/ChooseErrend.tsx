@@ -37,7 +37,7 @@ const ChooseErrend = () => {
     background: "",
     part: "",
     reproduce: "",
-    files: [],
+    files: undefined,
     email: "",
   });
   const handleClick = (errend: string) => {
@@ -245,7 +245,7 @@ const ChooseErrend = () => {
                     setBugReport={setBugReport}
                     bugReport={bugReport}
                     stepDescription={
-                      "If possible please add an Image/video/screenshot of the bug. Supports PDF, JPG, PNG."
+                      "If possible please add an Image/video/screenshot of the bug."
                     }
                     placeHolder={"e.g. Go to Part1 and click on the dropdown."}
                     kindOfErrend={kindOfErrend}

@@ -22,7 +22,7 @@ const StepFour = (props: IStepFour) => {
         background: props.bugReport.background,
         part: props.bugReport.part,
         reproduce: e.target.value,
-        files: [],
+        files: undefined,
         email: "",
       });
     }

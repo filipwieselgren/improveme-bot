@@ -324,3 +324,26 @@ li {
     font-size: 1.4rem;
   }
 }
+
+.file-wrapper {
+  border: solid #77bc56;
+  background-color: #76bc5610;
+  padding: 1rem;
+  margin: 0.5rem;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .remove-file {
+    color: #c46c66;
+    cursor: pointer;
+    font-size: 1.8rem;
+  }
+}
+
+.file-exists {
+  text-align: center;
+  padding: 1rem;
+  color: #c46c66;
+}

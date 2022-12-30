@@ -31,7 +31,7 @@ const StepTwo = (props: IStepTwo) => {
         background: e.target.value,
         part: "",
         reproduce: "",
-        files: [],
+        files: undefined,
         email: "",
       });
     }

@@ -40,7 +40,7 @@ const FrStepThree = (props: IStepThree) => {
         background: props.bugReport.background,
         part: part.part,
         reproduce: "",
-        files: [],
+        files: undefined,
         email: "",
       });
     }

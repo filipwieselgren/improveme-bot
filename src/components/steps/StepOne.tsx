@@ -33,7 +33,7 @@ const StepOne = (props: IStepOne) => {
         background: "",
         part: "",
         reproduce: "",
-        files: [],
+        files: undefined,
         email: "",
       });
     } else if ("gi") {
