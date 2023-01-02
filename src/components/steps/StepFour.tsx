@@ -1,11 +1,16 @@
 import { useState } from "react";
 import { IBugReport } from "../../models/IBugReport";
+import IGeneralImprovements from "../../models/IGeneralImprovements";
 import ChangeStep from "../buttons/ChangeStep";
 
 interface IStepFour {
   setStep: React.Dispatch<React.SetStateAction<boolean>>;
   handleScroll(): void;
   setBugReport: React.Dispatch<React.SetStateAction<IBugReport>>;
+  setGeneralImprovement: React.Dispatch<
+    React.SetStateAction<IGeneralImprovements>
+  >;
+  generalImprovement: IGeneralImprovements;
   bugReport: IBugReport;
   stepDescription: string;
   placeHolder: string;

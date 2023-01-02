@@ -2,12 +2,16 @@ import { useState } from "react";
 import ChangeStep from "../../components/buttons/ChangeStep";
 import { IBugReport } from "../../models/IBugReport";
 import IFeatureRequest from "../../models/IFeatureRequest";
+import IGeneralImprovements from "../../models/IGeneralImprovements";
 
 interface IStepOne {
   setStep: React.Dispatch<React.SetStateAction<boolean>>;
   handleScroll(): void;
   setFeatureRequest: React.Dispatch<React.SetStateAction<IFeatureRequest>>;
   setBugReport: React.Dispatch<React.SetStateAction<IBugReport>>;
+  setGeneralImprovement: React.Dispatch<
+    React.SetStateAction<IGeneralImprovements>
+  >;
   paragraphOne: string;
   paragraphTwo: string;
   stepDescription: string;
@@ -27,7 +31,7 @@ const StepOne = (props: IStepOne) => {
         part: "",
         email: "",
       });
-    } else if ("br") {
+    } else if (props.kindOfErrend === "br") {
       props.setBugReport({
         description: e.target.value,
         background: "",
@@ -36,8 +40,13 @@ const StepOne = (props: IStepOne) => {
         files: undefined,
         email: "",
       });
-    } else if ("gi") {
-      // Gi objekt state
+    } else if (props.kindOfErrend === "gi") {
+      props.setGeneralImprovement({
+        description: e.target.value,
+        reason: "",
+        part: "",
+        email: "",
+      });
     }
   };
   return (

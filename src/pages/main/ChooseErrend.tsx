@@ -12,6 +12,7 @@ import StepThree from "../../components/steps/StepThree";
 import StepFour from "../../components/steps/StepFour";
 import StepFive from "../../components/steps/StepFive";
 import { IBugReport } from "../../models/IBugReport";
+import IGeneralImprovements from "../../models/IGeneralImprovements";
 
 const ChooseErrend = () => {
   const [fr, setFr] = useState(true);
@@ -40,6 +41,13 @@ const ChooseErrend = () => {
     files: undefined,
     email: "",
   });
+  const [generalImprovement, setGeneralImprovement] =
+    useState<IGeneralImprovements>({
+      description: "",
+      reason: "",
+      part: "",
+      email: "",
+    });
   const handleClick = (errend: string) => {
     if (errend === "fr") {
       setKindOfErrend("fr");
@@ -60,7 +68,7 @@ const ChooseErrend = () => {
     setScroll(!scroll);
   };
 
-  console.log("bugReport:", bugReport);
+  console.log("generalImprovement:", generalImprovement);
 
   return (
     <ChatWrapper scroll={scroll}>
@@ -85,6 +93,7 @@ const ChooseErrend = () => {
                     handleScroll={handleScroll}
                     setFeatureRequest={setFeatureRequest}
                     setBugReport={setBugReport}
+                    setGeneralImprovement={setGeneralImprovement}
                     paragraphOne={
                       "I love people with ideas! The quality of your request is very important for the developer team."
                     }
@@ -109,6 +118,8 @@ const ChooseErrend = () => {
                     handleScroll={handleScroll}
                     setFeatureRequest={setFeatureRequest}
                     setBugReport={setBugReport}
+                    setGeneralImprovement={setGeneralImprovement}
+                    generalImprovement={generalImprovement}
                     featureRequest={featureRequest}
                     bugReport={bugReport}
                     stepDescription={
@@ -129,6 +140,8 @@ const ChooseErrend = () => {
                     handleScroll={handleScroll}
                     setFeatureRequest={setFeatureRequest}
                     setBugReport={setBugReport}
+                    setGeneralImprovement={setGeneralImprovement}
+                    generalImprovement={generalImprovement}
                     featureRequest={featureRequest}
                     bugReport={bugReport}
                     stepDescription={
@@ -145,6 +158,8 @@ const ChooseErrend = () => {
                     setSuccess={setSuccess}
                     setFeatureRequest={setFeatureRequest}
                     setBugReport={setBugReport}
+                    setGeneralImprovement={setGeneralImprovement}
+                    generalImprovement={generalImprovement}
                     featureRequest={featureRequest}
                     bugReport={bugReport}
                     kindOfErrend={kindOfErrend}
@@ -176,6 +191,7 @@ const ChooseErrend = () => {
                     handleScroll={handleScroll}
                     setFeatureRequest={setFeatureRequest}
                     setBugReport={setBugReport}
+                    setGeneralImprovement={setGeneralImprovement}
                     paragraphOne={
                       "Sorry to hear that you have experienced a bug. The quality of your report is very important for the developer team."
                     }
@@ -198,6 +214,8 @@ const ChooseErrend = () => {
                     handleScroll={handleScroll}
                     setFeatureRequest={setFeatureRequest}
                     setBugReport={setBugReport}
+                    setGeneralImprovement={setGeneralImprovement}
+                    generalImprovement={generalImprovement}
                     featureRequest={featureRequest}
                     bugReport={bugReport}
                     stepDescription={
@@ -216,6 +234,8 @@ const ChooseErrend = () => {
                     handleScroll={handleScroll}
                     setFeatureRequest={setFeatureRequest}
                     setBugReport={setBugReport}
+                    setGeneralImprovement={setGeneralImprovement}
+                    generalImprovement={generalImprovement}
                     featureRequest={featureRequest}
                     bugReport={bugReport}
                     stepDescription={
@@ -232,6 +252,8 @@ const ChooseErrend = () => {
                     setStep={setStepFive}
                     handleScroll={handleScroll}
                     setBugReport={setBugReport}
+                    setGeneralImprovement={setGeneralImprovement}
+                    generalImprovement={generalImprovement}
                     bugReport={bugReport}
                     stepDescription={
                       "How do you reproduce the bug? How can the developers reproduce this problem? What are the actual steps to do that?"
@@ -248,6 +270,8 @@ const ChooseErrend = () => {
                     setStep={setEmail}
                     handleScroll={handleScroll}
                     setBugReport={setBugReport}
+                    setGeneralImprovement={setGeneralImprovement}
+                    generalImprovement={generalImprovement}
                     bugReport={bugReport}
                     stepDescription={
                       "If possible please add an Image/screenshot of the bug. You can for example take a screenshot of the errormessage in the console."
@@ -264,11 +288,13 @@ const ChooseErrend = () => {
                     setSuccess={setSuccess}
                     setFeatureRequest={setFeatureRequest}
                     setBugReport={setBugReport}
+                    setGeneralImprovement={setGeneralImprovement}
+                    generalImprovement={generalImprovement}
                     featureRequest={featureRequest}
                     bugReport={bugReport}
                     kindOfErrend={kindOfErrend}
                     text={
-                      "Sometimes the tech team will have additional questions regarding the bug"
+                      "Sometimes the tech team will have additional questions regarding the bug."
                     }
                   />
                 ) : (
@@ -279,18 +305,99 @@ const ChooseErrend = () => {
               <></>
             )}
             {gi ? (
-              <button
-                className="errend-btn"
-                id="g-errend"
-                onClick={() => handleClick("gi")}
-              >
-                <span> Generel improvment</span>
-                <img
-                  src={increase}
-                  alt="of a generel improvment"
-                  className="errend-img"
-                />
-              </button>
+              <>
+                <button
+                  className="errend-btn"
+                  id="g-errend"
+                  onClick={() => handleClick("gi")}
+                >
+                  <span> Generel improvment</span>
+                  <img
+                    src={increase}
+                    alt="of a generel improvment"
+                    className="errend-img"
+                  />
+                </button>
+                {!br && !fr ? (
+                  <StepOne
+                    setStep={setStepTwo}
+                    handleScroll={handleScroll}
+                    setFeatureRequest={setFeatureRequest}
+                    setBugReport={setBugReport}
+                    setGeneralImprovement={setGeneralImprovement}
+                    paragraphOne={
+                      "I love people with ideas! The quality of your request is very important for the developer team."
+                    }
+                    paragraphTwo={
+                      "Therefore this type of errand is done in three steps."
+                    }
+                    stepDescription={"What should be improved and how?"}
+                    placeHolder={
+                      "e.g. The dropdown. Add an alphabetic sort function to dropdowns."
+                    }
+                    kindOfErrend={kindOfErrend}
+                  />
+                ) : (
+                  <></>
+                )}
+
+                {stepTwo ? (
+                  <StepTwo
+                    setStep={setStepThree}
+                    handleScroll={handleScroll}
+                    setFeatureRequest={setFeatureRequest}
+                    setBugReport={setBugReport}
+                    setGeneralImprovement={setGeneralImprovement}
+                    generalImprovement={generalImprovement}
+                    featureRequest={featureRequest}
+                    bugReport={bugReport}
+                    stepDescription={"Why should it be improved?"}
+                    placeHolder={
+                      "e.g. It's hard to find in the dropdowns. This would make it a lot easier to find."
+                    }
+                    kindOfErrend={kindOfErrend}
+                  />
+                ) : (
+                  <></>
+                )}
+
+                {stepThree ? (
+                  <StepThree
+                    setStep={setEmail}
+                    handleScroll={handleScroll}
+                    setFeatureRequest={setFeatureRequest}
+                    setBugReport={setBugReport}
+                    setGeneralImprovement={setGeneralImprovement}
+                    generalImprovement={generalImprovement}
+                    featureRequest={featureRequest}
+                    bugReport={bugReport}
+                    stepDescription={
+                      "Which part of the platform does it apply to?"
+                    }
+                    kindOfErrend={kindOfErrend}
+                  />
+                ) : (
+                  <></>
+                )}
+
+                {email ? (
+                  <Email
+                    setSuccess={setSuccess}
+                    setFeatureRequest={setFeatureRequest}
+                    setBugReport={setBugReport}
+                    setGeneralImprovement={setGeneralImprovement}
+                    generalImprovement={generalImprovement}
+                    featureRequest={featureRequest}
+                    bugReport={bugReport}
+                    kindOfErrend={kindOfErrend}
+                    text={
+                      "Sometimes the tech team will have additional questions regarding your errend, since they want to understand it better."
+                    }
+                  />
+                ) : (
+                  <></>
+                )}
+              </>
             ) : (
               <></>
             )}

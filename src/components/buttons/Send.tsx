@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { IBugReport } from "../../models/IBugReport";
 import IFeatureRequest from "../../models/IFeatureRequest";
+import IGeneralImprovements from "../../models/IGeneralImprovements";
 
 interface ISend {
   setSuccess: React.Dispatch<React.SetStateAction<boolean>>;
   featureRequest: IFeatureRequest;
   bugReport: IBugReport;
+  generalImprovement: IGeneralImprovements;
   kindOfErrend: string;
 }
 
@@ -38,14 +40,14 @@ const Send = (props: ISend) => {
             body: JSON.stringify(props.bugReport),
           });
         } else if (props.kindOfErrend === "gi") {
-          await fetch("http://localhost:8080/api/v1/generalimprovment", {
+          await fetch("http://localhost:8080/api/v1/generalimprovement", {
             method: "POST",
             headers: {
               Accept: "application/json",
               "Content-Type": "application/json",
               mode: "no-cors",
             },
-            body: JSON.stringify(props.bugReport),
+            body: JSON.stringify(props.generalImprovement),
           });
         }
 

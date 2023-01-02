@@ -5,12 +5,17 @@ import partMock from "../../data/partMock";
 import Complete from "../../components/buttons/Complete";
 import IFeatureRequest from "../../models/IFeatureRequest";
 import { IBugReport } from "../../models/IBugReport";
+import IGeneralImprovements from "../../models/IGeneralImprovements";
 
 interface IStepThree {
   setStep: React.Dispatch<React.SetStateAction<boolean>>;
   handleScroll(): void;
   setFeatureRequest: React.Dispatch<React.SetStateAction<IFeatureRequest>>;
   setBugReport: React.Dispatch<React.SetStateAction<IBugReport>>;
+  setGeneralImprovement: React.Dispatch<
+    React.SetStateAction<IGeneralImprovements>
+  >;
+  generalImprovement: IGeneralImprovements;
   featureRequest: IFeatureRequest;
   bugReport: IBugReport;
   stepDescription: string;
@@ -41,6 +46,13 @@ const FrStepThree = (props: IStepThree) => {
         part: part.part,
         reproduce: "",
         files: undefined,
+        email: "",
+      });
+    } else if (props.kindOfErrend === "gi") {
+      props.setGeneralImprovement({
+        description: props.generalImprovement.description,
+        reason: props.generalImprovement.reason,
+        part: part.part,
         email: "",
       });
     }

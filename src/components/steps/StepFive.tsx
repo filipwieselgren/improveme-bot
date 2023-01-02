@@ -3,11 +3,16 @@ import { Files, IBugReport } from "../../models/IBugReport";
 import Complete from "../buttons/Complete";
 import { BsPlusCircle, BsTrash } from "react-icons/bs";
 import { useEffect } from "react";
+import IGeneralImprovements from "../../models/IGeneralImprovements";
 
 interface IStepFive {
   setStep: React.Dispatch<React.SetStateAction<boolean>>;
   handleScroll(): void;
   setBugReport: React.Dispatch<React.SetStateAction<IBugReport>>;
+  setGeneralImprovement: React.Dispatch<
+    React.SetStateAction<IGeneralImprovements>
+  >;
+  generalImprovement: IGeneralImprovements;
   bugReport: IBugReport;
   stepDescription: string;
   placeHolder: string;

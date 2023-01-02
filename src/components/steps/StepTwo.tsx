@@ -2,12 +2,17 @@ import { useState } from "react";
 import ChangeStep from "../../components/buttons/ChangeStep";
 import { IBugReport } from "../../models/IBugReport";
 import IFeatureRequest from "../../models/IFeatureRequest";
+import IGeneralImprovements from "../../models/IGeneralImprovements";
 
 interface IStepTwo {
   setStep: React.Dispatch<React.SetStateAction<boolean>>;
   handleScroll(): void;
   setFeatureRequest: React.Dispatch<React.SetStateAction<IFeatureRequest>>;
   setBugReport: React.Dispatch<React.SetStateAction<IBugReport>>;
+  setGeneralImprovement: React.Dispatch<
+    React.SetStateAction<IGeneralImprovements>
+  >;
+  generalImprovement: IGeneralImprovements;
   featureRequest: IFeatureRequest;
   bugReport: IBugReport;
   stepDescription: string;
@@ -32,6 +37,13 @@ const StepTwo = (props: IStepTwo) => {
         part: "",
         reproduce: "",
         files: undefined,
+        email: "",
+      });
+    } else if (props.kindOfErrend === "gi") {
+      props.setGeneralImprovement({
+        description: props.generalImprovement.description,
+        reason: e.target.value,
+        part: "",
         email: "",
       });
     }

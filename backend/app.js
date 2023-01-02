@@ -14,7 +14,7 @@ app.use(express.json());
 const PartModel = require("./models/Parts.js");
 const FeatureRequestModel = require("./models/FeatureRequest.js");
 const BugReportModel = require("./models/BugReport.js");
-const GeneralImprovmentModel = require("./models/GeneralImprovment");
+const GeneralImprovementModel = require("./models/GeneralImprovement.js");
 
 app.post("/api/v1/featurerequest", async (req, res) => {
   const featureFromBody = await req.body;
@@ -47,11 +47,10 @@ app.post("/api/v1/bugreport", async (req, res) => {
   await createBugReport.save();
   res.status(201).send(createBugReport);
 });
-
-app.post("api/v1/generalimprovment", async (req, res) => {
-  const generalImprovmentBody = await req.body;
-  const createGeneralImprovment = new GeneralImprovmentModel(
-    generalImprovmentBody
+app.post("/api/v1/generalimprovement", async (req, res) => {
+  const generalImprovementBody = await req.body;
+  const createGeneralImprovment = new GeneralImprovementModel(
+    generalImprovementBody
   );
 
   await createGeneralImprovment.save();
