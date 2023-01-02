@@ -146,6 +146,11 @@ const ChooseErrend = () => {
                     setFeatureRequest={setFeatureRequest}
                     setBugReport={setBugReport}
                     featureRequest={featureRequest}
+                    bugReport={bugReport}
+                    kindOfErrend={kindOfErrend}
+                    text={
+                      "Sometimes the tech team will have additional questions regarding the feature, since they want to understand your request better."
+                    }
                   />
                 ) : (
                   <></>
@@ -245,7 +250,7 @@ const ChooseErrend = () => {
                     setBugReport={setBugReport}
                     bugReport={bugReport}
                     stepDescription={
-                      "If possible please add an Image/video/screenshot of the bug."
+                      "If possible please add an Image/screenshot of the bug. You can for example take a screenshot of the errormessage in the console."
                     }
                     placeHolder={"e.g. Go to Part1 and click on the dropdown."}
                     kindOfErrend={kindOfErrend}
@@ -260,6 +265,11 @@ const ChooseErrend = () => {
                     setFeatureRequest={setFeatureRequest}
                     setBugReport={setBugReport}
                     featureRequest={featureRequest}
+                    bugReport={bugReport}
+                    kindOfErrend={kindOfErrend}
+                    text={
+                      "Sometimes the tech team will have additional questions regarding the bug"
+                    }
                   />
                 ) : (
                   <></>

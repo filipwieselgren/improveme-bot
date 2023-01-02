@@ -6,29 +6,40 @@ interface IEmail {
   setFeatureRequest: React.Dispatch<React.SetStateAction<IFeatureRequest>>;
   setBugReport: React.Dispatch<React.SetStateAction<IBugReport>>;
   featureRequest: IFeatureRequest;
+  bugReport: IBugReport;
+  text: string;
+  kindOfErrend: string;
 }
 
 const Email = (props: IEmail) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    props.setFeatureRequest({
-      description: props.featureRequest.description,
-      solvesWhat: props.featureRequest.solvesWhat,
-      part: props.featureRequest.part,
-      email: e.target.value,
-    });
+    if (props.kindOfErrend === "fr") {
+      props.setFeatureRequest({
+        description: props.featureRequest.description,
+        solvesWhat: props.featureRequest.solvesWhat,
+        part: props.featureRequest.part,
+        email: e.target.value,
+      });
+    } else if (props.kindOfErrend === "br") {
+      props.setBugReport({
+        description: props.bugReport.description,
+        background: props.bugReport.background,
+        part: props.bugReport.part,
+        reproduce: props.bugReport.reproduce,
+        files: props.bugReport.files,
+        email: e.target.value,
+      });
+    }
   };
   return (
     <>
       <div className="txt-300 thank-you-txt">
         Thank you for all the information!
       </div>
-      <div className="txt-200">
-        Sometimes the tech team will have additional questions regarding the
-        feature, since they want to understand your request better.
-      </div>
+      <div className="txt-200">{props.text}</div>
       <div className="txt-300">
         Leave your work e-mail so they can get back to you.
-        <span className="txt-400">You can leave it blank as well.</span>
+        {/* <span className="txt-400">You can leave it blank as well.</span> */}
       </div>
       <form>
         <input
@@ -40,6 +51,8 @@ const Email = (props: IEmail) => {
       <Send
         setSuccess={props.setSuccess}
         featureRequest={props.featureRequest}
+        bugReport={props.bugReport}
+        kindOfErrend={props.kindOfErrend}
       />
     </>
   );

@@ -1,26 +1,53 @@
 import { useState } from "react";
+import { IBugReport } from "../../models/IBugReport";
 import IFeatureRequest from "../../models/IFeatureRequest";
 
 interface ISend {
   setSuccess: React.Dispatch<React.SetStateAction<boolean>>;
   featureRequest: IFeatureRequest;
+  bugReport: IBugReport;
+  kindOfErrend: string;
 }
 
 const Send = (props: ISend) => {
   const [loading, setLoading] = useState(false);
   const sendFetch = () => {
+    console.log("props.kindOfErrend:", props.kindOfErrend);
+
     try {
       (async () => {
         setLoading(true);
-        await fetch("http://localhost:8080/api/v1/featurerequest", {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-            mode: "no-cors",
-          },
-          body: JSON.stringify(props.featureRequest),
-        });
+        if (props.kindOfErrend === "fr") {
+          await fetch("http://localhost:8080/api/v1/featurerequest", {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+              mode: "no-cors",
+            },
+            body: JSON.stringify(props.featureRequest),
+          });
+        } else if (props.kindOfErrend === "br") {
+          await fetch("http://localhost:8080/api/v1/bugreport", {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+              mode: "no-cors",
+            },
+            body: JSON.stringify(props.bugReport),
+          });
+        } else if (props.kindOfErrend === "gi") {
+          await fetch("http://localhost:8080/api/v1/generalimprovment", {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+              mode: "no-cors",
+            },
+            body: JSON.stringify(props.bugReport),
+          });
+        }
 
         setLoading(false);
         props.setSuccess(true);
