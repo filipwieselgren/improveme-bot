@@ -95,7 +95,7 @@ const ChooseErrend = () => {
                     setBugReport={setBugReport}
                     setGeneralImprovement={setGeneralImprovement}
                     paragraphOne={
-                      "I love people with ideas! The quality of your request is very important for the developer team."
+                      "I love people with ideas! The quality of your request is very important for the development team."
                     }
                     paragraphTwo={
                       "Therefore a feature request is done in three steps."
@@ -193,7 +193,7 @@ const ChooseErrend = () => {
                     setBugReport={setBugReport}
                     setGeneralImprovement={setGeneralImprovement}
                     paragraphOne={
-                      "Sorry to hear that you have experienced a bug. The quality of your report is very important for the developer team."
+                      "Sorry to hear that you have experienced a bug. The quality of your report is very important for the development team."
                     }
                     paragraphTwo={
                       "Therefore a bug report is done in five steps."
@@ -326,7 +326,7 @@ const ChooseErrend = () => {
                     setBugReport={setBugReport}
                     setGeneralImprovement={setGeneralImprovement}
                     paragraphOne={
-                      "I love people with ideas! The quality of your request is very important for the developer team."
+                      "I love people with ideas! The quality of your errend is very important for the development team."
                     }
                     paragraphTwo={
                       "Therefore this type of errand is done in three steps."
