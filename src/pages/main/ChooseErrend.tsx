@@ -404,7 +404,7 @@ const ChooseErrend = () => {
           </div>
         </>
       ) : (
-        <Success />
+        <Success kindOfErrend={kindOfErrend} />
       )}
     </ChatWrapper>
   );
