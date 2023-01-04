@@ -33,7 +33,7 @@ const ChooseErrend = () => {
     part: "",
     email: "",
     approved: false,
-    fixed: false,
+    status: "",
     assignedTo: "",
   });
   const [bugReport, setBugReport] = useState<IBugReport>({
@@ -43,7 +43,7 @@ const ChooseErrend = () => {
     reproduce: "",
     files: undefined,
     email: "",
-    fixed: false,
+    status: "",
     assignedTo: "",
   });
   const [generalImprovement, setGeneralImprovement] =
@@ -53,7 +53,7 @@ const ChooseErrend = () => {
       part: "",
       email: "",
       approved: false,
-      fixed: false,
+      status: "",
       assignedTo: "",
     });
   const handleClick = (errend: string) => {

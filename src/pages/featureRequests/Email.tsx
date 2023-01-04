@@ -24,6 +24,9 @@ const Email = (props: IEmail) => {
         solvesWhat: props.featureRequest.solvesWhat,
         part: props.featureRequest.part,
         email: e.target.value,
+        approved: false,
+        status: "",
+        assignedTo: "",
       });
     } else if (props.kindOfErrend === "br") {
       props.setBugReport({
@@ -33,6 +36,8 @@ const Email = (props: IEmail) => {
         reproduce: props.bugReport.reproduce,
         files: props.bugReport.files,
         email: e.target.value,
+        status: "",
+        assignedTo: "",
       });
     } else if (props.kindOfErrend === "gi") {
       props.setGeneralImprovement({
@@ -40,6 +45,9 @@ const Email = (props: IEmail) => {
         reason: props.generalImprovement.reason,
         part: props.generalImprovement.part,
         email: e.target.value,
+        approved: false,
+        status: "",
+        assignedTo: "",
       });
     }
   };
