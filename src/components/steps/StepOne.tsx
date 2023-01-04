@@ -30,6 +30,9 @@ const StepOne = (props: IStepOne) => {
         solvesWhat: "",
         part: "",
         email: "",
+        approved: false,
+        status: "",
+        assignedTo: "",
       });
     } else if (props.kindOfErrend === "br") {
       props.setBugReport({
@@ -39,6 +42,8 @@ const StepOne = (props: IStepOne) => {
         reproduce: "",
         files: undefined,
         email: "",
+        status: "",
+        assignedTo: "",
       });
     } else if (props.kindOfErrend === "gi") {
       props.setGeneralImprovement({
@@ -46,6 +51,9 @@ const StepOne = (props: IStepOne) => {
         reason: "",
         part: "",
         email: "",
+        approved: false,
+        status: "",
+        assignedTo: "",
       });
     }
   };

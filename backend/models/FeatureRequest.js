@@ -5,6 +5,9 @@ const featurerequestSchema = new mongoose.Schema({
   solvesWhat: { type: String, required: true },
   part: { type: String, required: true },
   email: { type: String, required: false },
+  approved: { type: Boolean, required: true },
+  status: { type: String, required: true },
+  assignedTo: { type: String, required: true },
 });
 
 const FeatureRequestModel = mongoose.model(

@@ -38,6 +38,9 @@ const FrStepThree = (props: IStepThree) => {
         solvesWhat: props.featureRequest.solvesWhat,
         part: part.part,
         email: "",
+        approved: false,
+        status: "",
+        assignedTo: "",
       });
     } else if (props.kindOfErrend === "br") {
       props.setBugReport({
@@ -47,6 +50,8 @@ const FrStepThree = (props: IStepThree) => {
         reproduce: "",
         files: undefined,
         email: "",
+        status: "",
+        assignedTo: "",
       });
     } else if (props.kindOfErrend === "gi") {
       props.setGeneralImprovement({
@@ -54,6 +59,9 @@ const FrStepThree = (props: IStepThree) => {
         reason: props.generalImprovement.reason,
         part: part.part,
         email: "",
+        approved: false,
+        status: "",
+        assignedTo: "",
       });
     }
   };

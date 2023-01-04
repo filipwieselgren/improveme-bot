@@ -34,6 +34,8 @@ const StepFive = (props: IStepFive) => {
       reproduce: props.bugReport.reproduce,
       files: files,
       email: "",
+      status: "",
+      assignedTo: "",
     });
   }, [files]);
 

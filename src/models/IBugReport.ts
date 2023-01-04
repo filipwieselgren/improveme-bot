@@ -5,6 +5,8 @@ export interface IBugReport {
   reproduce: string;
   files: File | undefined;
   email: string;
+  status: string;
+  assignedTo: string;
 }
 
 // export interface IFiles {

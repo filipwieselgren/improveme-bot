@@ -32,6 +32,9 @@ const ChooseErrend = () => {
     solvesWhat: "",
     part: "",
     email: "",
+    approved: false,
+    fixed: false,
+    assignedTo: "",
   });
   const [bugReport, setBugReport] = useState<IBugReport>({
     description: "",
@@ -40,6 +43,8 @@ const ChooseErrend = () => {
     reproduce: "",
     files: undefined,
     email: "",
+    fixed: false,
+    assignedTo: "",
   });
   const [generalImprovement, setGeneralImprovement] =
     useState<IGeneralImprovements>({
@@ -47,6 +52,9 @@ const ChooseErrend = () => {
       reason: "",
       part: "",
       email: "",
+      approved: false,
+      fixed: false,
+      assignedTo: "",
     });
   const handleClick = (errend: string) => {
     if (errend === "fr") {

@@ -5,6 +5,9 @@ const generalImprovmentSchema = new mongoose.Schema({
   reason: { type: String, required: true },
   part: { type: String, required: true },
   email: { type: String, required: false },
+  approved: { type: Boolean, required: true },
+  status: { type: String, required: true },
+  assignedTo: { type: String, required: true },
 });
 
 const GeneralImprovmentModel = mongoose.model(

@@ -29,6 +29,8 @@ const StepFour = (props: IStepFour) => {
         reproduce: e.target.value,
         files: undefined,
         email: "",
+        status: "",
+        assignedTo: "",
       });
     }
   };

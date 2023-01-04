@@ -29,6 +29,9 @@ const StepTwo = (props: IStepTwo) => {
         solvesWhat: e.target.value,
         part: "",
         email: "",
+        approved: false,
+        status: "",
+        assignedTo: "",
       });
     } else if (props.kindOfErrend === "br") {
       props.setBugReport({
@@ -38,6 +41,8 @@ const StepTwo = (props: IStepTwo) => {
         reproduce: "",
         files: undefined,
         email: "",
+        status: "",
+        assignedTo: "",
       });
     } else if (props.kindOfErrend === "gi") {
       props.setGeneralImprovement({
@@ -45,6 +50,9 @@ const StepTwo = (props: IStepTwo) => {
         reason: e.target.value,
         part: "",
         email: "",
+        approved: false,
+        status: "",
+        assignedTo: "",
       });
     }
   };
