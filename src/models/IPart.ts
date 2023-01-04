@@ -4,6 +4,6 @@ export interface IPart {
 }
 
 export interface IParts {
-  id: string;
-  part: string;
+  _id: string;
+  section: string;
 }

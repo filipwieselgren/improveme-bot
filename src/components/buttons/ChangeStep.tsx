@@ -16,7 +16,7 @@ const ChangeStep = (props: IChange) => {
       return;
     } else if (
       props.txtAreaValue.length !== 0 &&
-      props.part.part.length === 0
+      props.part.section.length === 0
     ) {
       console.log("No part");
       return;

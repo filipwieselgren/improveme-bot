@@ -2,7 +2,7 @@ import ChatWrapper from "../../components/wrappers/ChatWrapper";
 import bug from "../../assets/bug.png";
 import feature from "../../assets/newFeature.png";
 import increase from "../../assets/increase.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Email from "../featureRequests/Email";
 import Success from "../../components/text/Success";
 import IFeatureRequest from "../../models/IFeatureRequest";
@@ -13,6 +13,7 @@ import StepFour from "../../components/steps/StepFour";
 import StepFive from "../../components/steps/StepFive";
 import { IBugReport } from "../../models/IBugReport";
 import IGeneralImprovements from "../../models/IGeneralImprovements";
+import { IParts } from "../../models/IPart";
 
 const ChooseErrend = () => {
   const [fr, setFr] = useState(true);
@@ -56,6 +57,19 @@ const ChooseErrend = () => {
       status: "",
       assignedTo: "",
     });
+  const [parts, setParts] = useState<IParts[]>([
+    {
+      _id: "",
+      section: "",
+    },
+  ]);
+
+  useEffect(() => {
+    fetch("http://localhost:8080/api/v1/section")
+      .then((res) => res.json())
+      .then((data) => setParts(data));
+  }, []);
+
   const handleClick = (errend: string) => {
     if (errend === "fr") {
       setKindOfErrend("fr");
@@ -156,6 +170,7 @@ const ChooseErrend = () => {
                       "In which part of the platform does the feature belongs to?"
                     }
                     kindOfErrend={kindOfErrend}
+                    parts={parts}
                   />
                 ) : (
                   <></>
@@ -250,6 +265,7 @@ const ChooseErrend = () => {
                       "Within which part of the platform does the bug occurs?"
                     }
                     kindOfErrend={kindOfErrend}
+                    parts={parts}
                   />
                 ) : (
                   <></>
@@ -383,6 +399,7 @@ const ChooseErrend = () => {
                       "Which part of the platform does it apply to?"
                     }
                     kindOfErrend={kindOfErrend}
+                    parts={parts}
                   />
                 ) : (
                   <></>

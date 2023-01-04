@@ -103,8 +103,8 @@ const StepFive = (props: IStepFive) => {
         setEmail={props.setStep}
         handleScroll={props.handleScroll}
         sendPart={{
-          id: "",
-          part: " ",
+          _id: "",
+          section: " ",
         }}
       />
     </>

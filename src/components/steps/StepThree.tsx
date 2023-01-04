@@ -1,7 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ChangeStep from "../../components/buttons/ChangeStep";
 import { IParts } from "../../models/IPart";
-import partMock from "../../data/partMock";
 import Complete from "../../components/buttons/Complete";
 import IFeatureRequest from "../../models/IFeatureRequest";
 import { IBugReport } from "../../models/IBugReport";
@@ -20,23 +19,23 @@ interface IStepThree {
   bugReport: IBugReport;
   stepDescription: string;
   kindOfErrend: string;
+  parts: IParts[];
 }
 const FrStepThree = (props: IStepThree) => {
-  const [parts, setParts] = useState<IParts[]>(partMock.parts);
   const [chosePartId, setChosePartId] = useState<string>("");
   const [sendPart, setSendPart] = useState<IParts>({
-    id: "",
-    part: "",
+    _id: "",
+    section: "",
   });
 
   const getPart = (part: IParts) => {
     setSendPart(part);
-    setChosePartId(part.id);
+    setChosePartId(part._id);
     if (props.kindOfErrend === "fr") {
       props.setFeatureRequest({
         description: props.featureRequest.description,
         solvesWhat: props.featureRequest.solvesWhat,
-        part: part.part,
+        part: part.section,
         email: "",
         approved: false,
         status: "",
@@ -46,7 +45,7 @@ const FrStepThree = (props: IStepThree) => {
       props.setBugReport({
         description: props.bugReport.description,
         background: props.bugReport.background,
-        part: part.part,
+        part: part.section,
         reproduce: "",
         files: undefined,
         email: "",
@@ -57,7 +56,7 @@ const FrStepThree = (props: IStepThree) => {
       props.setGeneralImprovement({
         description: props.generalImprovement.description,
         reason: props.generalImprovement.reason,
-        part: part.part,
+        part: part.section,
         email: "",
         approved: false,
         status: "",
@@ -65,23 +64,28 @@ const FrStepThree = (props: IStepThree) => {
       });
     }
   };
+
   return (
     <>
       <h4 className="txt-400 step-title">Step 3:</h4>
       <div className="txt-300 ">{props.stepDescription}</div>
       <div className="parts-btn-wrapper">
-        {parts.map((p) => {
-          return (
-            <button
-              key={p.id}
-              className={chosePartId === p.id ? "clicked-part" : "part-btn"}
-              id={`part${p.id}`}
-              onClick={() => getPart(p)}
-            >
-              {p.part}
-            </button>
-          );
-        })}
+        {props.parts.length > 0 ? (
+          props.parts.map((p) => {
+            return (
+              <button
+                key={p._id}
+                className={chosePartId === p._id ? "clicked-part" : "part-btn"}
+                id={`part${p._id}`}
+                onClick={() => getPart(p)}
+              >
+                {p.section}
+              </button>
+            );
+          })
+        ) : (
+          <p>No part added</p>
+        )}
       </div>
       {props.kindOfErrend === "br" ? (
         <ChangeStep

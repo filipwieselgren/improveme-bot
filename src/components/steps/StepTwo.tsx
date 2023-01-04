@@ -76,8 +76,8 @@ const StepTwo = (props: IStepTwo) => {
         stepNumber={2}
         txtAreaValue={txtAreaValue}
         part={{
-          id: "",
-          part: " ",
+          _id: "",
+          section: " ",
         }}
         handleScroll={props.handleScroll}
       />

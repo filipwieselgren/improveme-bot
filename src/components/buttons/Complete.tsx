@@ -8,7 +8,7 @@ interface IComplete {
 
 const Complete = (props: IComplete) => {
   const handleCompleteClick = () => {
-    if (props.sendPart.part === "") {
+    if (props.sendPart.section === "") {
       console.log("No part added");
       return;
     }

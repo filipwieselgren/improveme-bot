@@ -11,7 +11,7 @@ app.use(cors());
 
 app.use(express.json());
 
-const PartModel = require("./models/Parts.js");
+const partRoute = require("./routes/partRoute.js");
 const featurerequestRoute = require("./routes/featurerequestRoute.js");
 const bugreportRoute = require("./routes/bugreportRoute.js");
 const generalimprovementRoute = require("./routes/generalimprovementRoute.js");
@@ -19,6 +19,7 @@ const generalimprovementRoute = require("./routes/generalimprovementRoute.js");
 app.use("/api/v1", featurerequestRoute);
 app.use("/api/v1", bugreportRoute);
 app.use("/api/v1", generalimprovementRoute);
+app.use("/api/v1", partRoute);
 
 const port = 8080;
 app.listen(port, () => {
