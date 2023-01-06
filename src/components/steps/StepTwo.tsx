@@ -41,6 +41,7 @@ const StepTwo = (props: IStepTwo) => {
         reproduce: "",
         files: undefined,
         email: "",
+        approved: true,
         status: "",
         assignedTo: "",
       });

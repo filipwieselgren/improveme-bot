@@ -29,6 +29,7 @@ const StepFour = (props: IStepFour) => {
         reproduce: e.target.value,
         files: undefined,
         email: "",
+        approved: true,
         status: "",
         assignedTo: "",
       });

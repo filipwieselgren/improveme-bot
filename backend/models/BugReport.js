@@ -7,6 +7,7 @@ const bugreportSchema = new mongoose.Schema({
   reproduce: { type: String, required: true },
   files: Array,
   email: { type: String, required: false },
+  approved: Boolean,
   status: String,
   assignedTo: String,
 });
