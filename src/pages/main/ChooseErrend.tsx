@@ -44,6 +44,7 @@ const ChooseErrend = () => {
     reproduce: "",
     files: undefined,
     email: "",
+    approved: true,
     status: "",
     assignedTo: "",
   });

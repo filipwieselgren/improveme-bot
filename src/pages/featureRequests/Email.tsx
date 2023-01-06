@@ -36,6 +36,7 @@ const Email = (props: IEmail) => {
         reproduce: props.bugReport.reproduce,
         files: props.bugReport.files,
         email: e.target.value,
+        approved: true,
         status: "",
         assignedTo: "",
       });
