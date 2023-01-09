@@ -1,6 +1,6 @@
 interface IGeneralImprovements {
   description: string;
-  reason: string;
+  solvesWhat: string;
   part: string;
   email: string;
   approved: boolean;

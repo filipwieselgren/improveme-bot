@@ -48,7 +48,7 @@ const StepTwo = (props: IStepTwo) => {
     } else if (props.kindOfErrend === "gi") {
       props.setGeneralImprovement({
         description: props.generalImprovement.description,
-        reason: e.target.value,
+        solvesWhat: e.target.value,
         part: "",
         email: "",
         approved: false,

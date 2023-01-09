@@ -12,8 +12,8 @@ const WelcomeChat = (props: IWelcome) => {
     <ChatWrapper scroll={false}>
       <h3 className="title">Welcome! I'm the improveMe bot.</h3>
       <div className="txt-200">
-        I’m here since I assume you will be here quite often, or from time to
-        time?
+        I’m here to create a better feedback loop between you and the
+        development team.
       </div>
       <div className="txt-300">By clicking on me you can:</div>
 

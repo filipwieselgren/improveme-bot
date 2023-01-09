@@ -43,7 +43,7 @@ const Email = (props: IEmail) => {
     } else if (props.kindOfErrend === "gi") {
       props.setGeneralImprovement({
         description: props.generalImprovement.description,
-        reason: props.generalImprovement.reason,
+        solvesWhat: props.generalImprovement.solvesWhat,
         part: props.generalImprovement.part,
         email: e.target.value,
         approved: false,

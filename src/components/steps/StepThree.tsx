@@ -56,7 +56,7 @@ const FrStepThree = (props: IStepThree) => {
     } else if (props.kindOfErrend === "gi") {
       props.setGeneralImprovement({
         description: props.generalImprovement.description,
-        reason: props.generalImprovement.reason,
+        solvesWhat: props.generalImprovement.solvesWhat,
         part: part.section,
         email: "",
         approved: false,

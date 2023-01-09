@@ -51,7 +51,7 @@ const ChooseErrend = () => {
   const [generalImprovement, setGeneralImprovement] =
     useState<IGeneralImprovements>({
       description: "",
-      reason: "",
+      solvesWhat: "",
       part: "",
       email: "",
       approved: false,

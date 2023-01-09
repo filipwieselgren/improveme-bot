@@ -5,30 +5,20 @@ const cors = require("cors");
 app.use(cors());
 
 const FeatureRequestModel = require("../models/FeatureRequest.js");
+const PartModel = require("../models/Parts.js");
 
 router.post("/featurerequest", async (req, res) => {
   const featureFromBody = await req.body;
+
   const createFeatuRerequest = new FeatureRequestModel(featureFromBody);
-
   await createFeatuRerequest.save();
-  res.status(201).send(createFeatuRerequest);
-  // const parts = await PartModel.findOne({ part: req.body.part });
-  // const newFeatureRequest = await FeatureRequestModel.findOne({
-  //   description: req.body.description,
-  // });
 
-  // let checkDuplicate = parts.featureRequest.filter((fr) => {
-  //   return fr.description === newFeatureRequest.description;
-  // });
+  const parts = await PartModel.findOne({ section: req.body.part });
 
-  // if (checkDuplicate.length === 0) {
-  //   parts.featureRequest.push(newFeatureRequest);
-  //   await parts.save();
-  //   res.status(200).send(parts);
-  // } else {
-  //   console.log("Already exists");
-  //   res.status(409).send("Already exists");
-  // }
+  parts.featureRequest.push(createFeatuRerequest);
+
+  await parts.save();
+  res.status(201).send({ parts, createFeatuRerequest });
 });
 
 module.exports = router;
