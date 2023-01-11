@@ -30,8 +30,8 @@ const StepTwo = (props: IStepTwo) => {
         part: "",
         email: "",
         approved: false,
-        status: "Not started",
-        assignedTo: "Not assigned",
+        status: "",
+        assignedTo: "",
       });
     } else if (props.kindOfErrend === "br") {
       props.setBugReport({
@@ -42,8 +42,8 @@ const StepTwo = (props: IStepTwo) => {
         files: undefined,
         email: "",
         approved: true,
-        status: "Not started",
-        assignedTo: "Not assigned",
+        status: "",
+        assignedTo: "",
       });
     } else if (props.kindOfErrend === "gi") {
       props.setGeneralImprovement({
@@ -52,8 +52,8 @@ const StepTwo = (props: IStepTwo) => {
         part: "",
         email: "",
         approved: false,
-        status: "Not started",
-        assignedTo: "Not assigned",
+        status: "",
+        assignedTo: "",
       });
     }
   };
