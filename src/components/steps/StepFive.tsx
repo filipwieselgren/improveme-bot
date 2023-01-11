@@ -35,8 +35,8 @@ const StepFive = (props: IStepFive) => {
       files: files,
       email: "",
       approved: true,
-      status: "",
-      assignedTo: "",
+      status: "Not started",
+      assignedTo: "Not assigned",
     });
   }, [files]);
 

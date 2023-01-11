@@ -38,8 +38,8 @@ const FrStepThree = (props: IStepThree) => {
         part: part.section,
         email: "",
         approved: false,
-        status: "",
-        assignedTo: "",
+        status: "Not started",
+        assignedTo: "Not assigned",
       });
     } else if (props.kindOfErrend === "br") {
       props.setBugReport({
@@ -50,8 +50,8 @@ const FrStepThree = (props: IStepThree) => {
         files: undefined,
         email: "",
         approved: true,
-        status: "",
-        assignedTo: "",
+        status: "Not started",
+        assignedTo: "Not assigned",
       });
     } else if (props.kindOfErrend === "gi") {
       props.setGeneralImprovement({
@@ -60,8 +60,8 @@ const FrStepThree = (props: IStepThree) => {
         part: part.section,
         email: "",
         approved: false,
-        status: "",
-        assignedTo: "",
+        status: "Not started",
+        assignedTo: "Not assigned",
       });
     }
   };

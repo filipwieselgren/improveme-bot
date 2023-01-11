@@ -30,8 +30,8 @@ const StepFour = (props: IStepFour) => {
         files: undefined,
         email: "",
         approved: true,
-        status: "",
-        assignedTo: "",
+        status: "Not started",
+        assignedTo: "Not assigned",
       });
     }
   };
