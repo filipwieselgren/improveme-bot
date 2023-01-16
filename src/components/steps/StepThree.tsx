@@ -47,7 +47,7 @@ const FrStepThree = (props: IStepThree) => {
         background: props.bugReport.background,
         part: part.section,
         reproduce: "",
-        files: undefined,
+        files: "",
         email: "",
         approved: true,
         status: "",

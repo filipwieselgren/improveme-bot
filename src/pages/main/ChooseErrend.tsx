@@ -42,7 +42,7 @@ const ChooseErrend = () => {
     background: "",
     part: "",
     reproduce: "",
-    files: undefined,
+    files: "",
     email: "",
     approved: true,
     status: "",
@@ -90,8 +90,6 @@ const ChooseErrend = () => {
   const handleScroll = () => {
     setScroll(!scroll);
   };
-
-  console.log("generalImprovement:", generalImprovement);
 
   return (
     <ChatWrapper scroll={scroll}>
@@ -299,7 +297,7 @@ const ChooseErrend = () => {
                     generalImprovement={generalImprovement}
                     bugReport={bugReport}
                     stepDescription={
-                      "If possible please add an Image/screenshot of the bug. You can for example take a screenshot of the errormessage in the console."
+                      "If possible please add an Image/screenshot of the bug. You can for example take a screenshot of the errormessage in the console. Keep in mind that you can only add one image."
                     }
                     placeHolder={"e.g. Go to Part1 and click on the dropdown."}
                     kindOfErrend={kindOfErrend}

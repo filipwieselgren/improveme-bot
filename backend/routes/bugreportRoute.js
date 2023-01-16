@@ -2,6 +2,10 @@ const express = require("express");
 const router = express.Router();
 const app = express();
 const cors = require("cors");
+const bodyParser = require("body-parser");
+app.use(bodyParser.json({ limit: "10mb", extended: true }));
+app.use(bodyParser.urlencoded({ limit: "10mb", extended: true }));
+
 app.use(cors());
 
 const BugReportModel = require("../models/BugReport.js");

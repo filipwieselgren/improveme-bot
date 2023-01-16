@@ -250,7 +250,7 @@ li {
 }
 
 .file-card {
-  padding: 1em;
+  // padding: 1em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -294,11 +294,6 @@ li {
         align-items: center;
         margin-right: 0.8em;
         font-size: 0.8em;
-
-        .react-icon {
-          width: 2rem;
-          height: 2rem;
-        }
       }
     }
 
@@ -346,4 +341,62 @@ li {
   text-align: center;
   padding: 1rem;
   color: #c46c66;
+}
+
+.upload__image-wrapper {
+  width: 100%;
+  padding: 0.5rem;
+  button {
+    @include m.general-btn;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .react-icon {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 10rem;
+  }
+}
+.image-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  align-items: center;
+  border: 0.5px solid #77bc56;
+  border-radius: 5px;
+  padding: 2rem;
+  min-height: 60px;
+  max-height: 60px;
+  margin-top: 1rem;
+
+  .file-img {
+    width: 4rem;
+    object-fit: contain;
+  }
+
+  button {
+    background-color: #f8fafb;
+    cursor: pointer;
+    width: 100%;
+    padding: 0.5rem 2rem;
+    box-shadow: 1px 1px 2px #333;
+    border-radius: 5px;
+    border: none;
+    margin-top: 0.5rem;
+
+    &:hover {
+      box-shadow: 0.5px 0.5px 2px #333;
+      cursor: pointer;
+    }
+
+    &:active {
+      -webkit-box-shadow: inset 0px 0px 4px #c1c1c1;
+      -moz-box-shadow: inset 0px 0px 4px #c1c1c1;
+      box-shadow: inset 0px 0px 4px #c1c1c1;
+      outline: none;
+    }
+  }
 }

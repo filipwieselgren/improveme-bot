@@ -1,3 +1,5 @@
+import React from "react";
+import ReactDOM from "react-dom";
 import { useState } from "react";
 import { Files, IBugReport } from "../../models/IBugReport";
 import Complete from "../buttons/Complete";
@@ -20,11 +22,11 @@ interface IStepFive {
 }
 
 const StepFive = (props: IStepFive) => {
-  const [files, setFiles] = useState<FormData | any>([]);
   const [fileAlreadyExists, setFileAlreadyExists] = useState(false);
+  const [postImage, setPostImage] = useState<string>("");
 
   useEffect(() => {
-    if (files.length === 0) {
+    if (postImage.length === 0) {
       setFileAlreadyExists(false);
     }
     props.setBugReport({
@@ -32,73 +34,73 @@ const StepFive = (props: IStepFive) => {
       background: props.bugReport.background,
       part: props.bugReport.part,
       reproduce: props.bugReport.reproduce,
-      files: files,
+      files: postImage,
       email: "",
       approved: true,
       status: "",
       assignedTo: "",
     });
-  }, [files]);
+  }, [postImage]);
 
-  const uploadHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    const fileExists = files.some((f: any) => f.name === file.name);
-    if (fileExists) {
-      setFileAlreadyExists(true);
-      return;
-    }
-
-    setFileAlreadyExists(false);
-    setFiles([...files, file]);
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  };
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0] as Blob;
+    const base64: string = (await convertToBase64(file)) as string;
+    setPostImage(base64);
   };
 
-  const removeFile = (name: string) => {
-    setFileAlreadyExists(false);
-    setFiles(files.filter((file: any) => file.name !== name));
+  const convertToBase64 = (file: Blob) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
   };
 
-  console.log("files:", files);
+  console.log(postImage);
+
+  const removeFile = () => {
+    // setFileAlreadyExists(false);
+
+    setPostImage("");
+  };
+
+  console.log(postImage);
 
   return (
     <>
       <h4 className="txt-400 step-title">Step 5:</h4>
       <div className="txt-300">{props.stepDescription}</div>
       <div className="file-card">
-        <div className="file-inputs">
-          <input
-            type="file"
-            accept="image/jpg, image/jpeg, image/png, application/pdf, video/mp4, video/avi, video/mpeg"
-            multiple
-            onChange={(e) => uploadHandler(e)}
-          />
-          <button>
-            <i>
-              <BsPlusCircle className="react-icon" />
-            </i>
-            Upload
-          </button>
-        </div>
-        <p>Support files</p>
-        <p>PNG, JPG</p>
-      </div>
-      {fileAlreadyExists ? (
-        <p className="file-exists">You have already uploaded this file.</p>
-      ) : (
-        <></>
-      )}
-      {files.map((f: any, i: number) => {
-        return (
-          <div key={i} className="file-wrapper txt-200">
-            <div> {f.name}</div>
-            <BsTrash
-              onClick={() => removeFile(f.name)}
-              className="remove-file"
+        <div className="upload__image-wrapper">
+          <form>
+            <input
+              type="file"
+              aria-label="image"
+              name="myFile"
+              id="file-upload"
+              accept=".jpeg, .png, .jpg"
+              onChange={(e) => handleFileUpload(e)}
             />
-          </div>
-        );
-      })}
+          </form>
+        </div>
+      </div>
+      {postImage === "" ? (
+        <></>
+      ) : (
+        <div className="image-item">
+          <img className="file-img" src={postImage} alt="" />
+
+          <BsTrash onClick={removeFile} />
+        </div>
+      )}
 
       <Complete
         setEmail={props.setStep}

@@ -40,7 +40,7 @@ const StepOne = (props: IStepOne) => {
         background: "",
         part: "",
         reproduce: "",
-        files: undefined,
+        files: "",
         email: "",
         approved: true,
         status: "",

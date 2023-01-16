@@ -3,7 +3,7 @@ export interface IBugReport {
   background: string;
   part: string;
   reproduce: string;
-  files: File | undefined;
+  files: string;
   email: string;
   approved: Boolean;
   status: string;
