@@ -42,9 +42,6 @@ const StepFive = (props: IStepFive) => {
     });
   }, [postImage]);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-  };
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] as Blob;
     const base64: string = (await convertToBase64(file)) as string;
@@ -64,12 +61,11 @@ const StepFive = (props: IStepFive) => {
     });
   };
 
-  console.log(postImage);
-
-  const removeFile = () => {
+  const removeFile = (file: string) => {
     // setFileAlreadyExists(false);
+    const newArr = postImage.filter((image) => image.file !== file);
 
-    setPostImage([{ file: "" }]);
+    setPostImage(newArr);
   };
 
   console.log(postImage);
@@ -100,7 +96,7 @@ const StepFive = (props: IStepFive) => {
             <div key={i} className="image-item">
               <img className="file-img" src={image.file} alt="" />
 
-              <BsTrash onClick={removeFile} />
+              <BsTrash onClick={() => removeFile(image.file)} />
             </div>
           ) : (
             <></>
