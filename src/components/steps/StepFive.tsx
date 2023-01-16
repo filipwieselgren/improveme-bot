@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { useState } from "react";
-import { Files, IBugReport } from "../../models/IBugReport";
+import { IBugReport, IFile } from "../../models/IBugReport";
 import Complete from "../buttons/Complete";
 import { BsPlusCircle, BsTrash } from "react-icons/bs";
 import { useEffect } from "react";
@@ -23,7 +23,7 @@ interface IStepFive {
 
 const StepFive = (props: IStepFive) => {
   const [fileAlreadyExists, setFileAlreadyExists] = useState(false);
-  const [postImage, setPostImage] = useState<string>("");
+  const [postImage, setPostImage] = useState<IFile[]>([{ file: "" }]);
 
   useEffect(() => {
     if (postImage.length === 0) {
@@ -48,7 +48,7 @@ const StepFive = (props: IStepFive) => {
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] as Blob;
     const base64: string = (await convertToBase64(file)) as string;
-    setPostImage(base64);
+    setPostImage([...postImage, { file: base64 }]);
   };
 
   const convertToBase64 = (file: Blob) => {
@@ -69,7 +69,7 @@ const StepFive = (props: IStepFive) => {
   const removeFile = () => {
     // setFileAlreadyExists(false);
 
-    setPostImage("");
+    setPostImage([{ file: "" }]);
   };
 
   console.log(postImage);
@@ -92,14 +92,20 @@ const StepFive = (props: IStepFive) => {
           </form>
         </div>
       </div>
-      {postImage === "" ? (
+      {postImage.length === 0 ? (
         <></>
       ) : (
-        <div className="image-item">
-          <img className="file-img" src={postImage} alt="" />
+        postImage.map((image: IFile, i) => {
+          return image.file !== "" ? (
+            <div key={i} className="image-item">
+              <img className="file-img" src={image.file} alt="" />
 
-          <BsTrash onClick={removeFile} />
-        </div>
+              <BsTrash onClick={removeFile} />
+            </div>
+          ) : (
+            <></>
+          );
+        })
       )}
 
       <Complete

@@ -42,7 +42,7 @@ const ChooseErrend = () => {
     background: "",
     part: "",
     reproduce: "",
-    files: "",
+    files: [{ file: "" }],
     email: "",
     approved: true,
     status: "",

@@ -39,7 +39,7 @@ const StepTwo = (props: IStepTwo) => {
         background: e.target.value,
         part: "",
         reproduce: "",
-        files: "",
+        files: [{ file: "" }],
         email: "",
         approved: true,
         status: "",

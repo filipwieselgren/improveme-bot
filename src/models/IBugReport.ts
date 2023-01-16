@@ -3,7 +3,7 @@ export interface IBugReport {
   background: string;
   part: string;
   reproduce: string;
-  files: string;
+  files: IFile[];
   email: string;
   approved: Boolean;
   status: string;
@@ -19,9 +19,6 @@ export interface IBugReport {
 //   webkitRelativePath: string;
 // }
 
-export class Files {
-  file: FileList | null;
-  constructor(file: FileList | null) {
-    this.file = file;
-  }
+export interface IFile {
+  file: string;
 }
