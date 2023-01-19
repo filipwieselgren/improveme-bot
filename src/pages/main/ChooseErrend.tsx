@@ -143,9 +143,7 @@ const ChooseErrend = () => {
                     generalImprovement={generalImprovement}
                     featureRequest={featureRequest}
                     bugReport={bugReport}
-                    stepDescription={
-                      "Briefly describe the function and what it does."
-                    }
+                    stepDescription={"What problem does the function solve?"}
                     placeHolder={
                       "e.g. It's hard to find in the dropdowns. This would make it a lot easier to find."
                     }
@@ -261,7 +259,7 @@ const ChooseErrend = () => {
                     featureRequest={featureRequest}
                     bugReport={bugReport}
                     stepDescription={
-                      "Within which part of the platform does the bug occurs?"
+                      "In which part of the platform does the bug occur?"
                     }
                     kindOfErrend={kindOfErrend}
                     parts={parts}
@@ -293,8 +291,6 @@ const ChooseErrend = () => {
                     setStep={setEmail}
                     handleScroll={handleScroll}
                     setBugReport={setBugReport}
-                    setGeneralImprovement={setGeneralImprovement}
-                    generalImprovement={generalImprovement}
                     bugReport={bugReport}
                     stepDescription={
                       "If possible please add an Image/screenshot of the bug. You can for example take a screenshot of the errormessage in the console. Keep in mind that you can only add one image."

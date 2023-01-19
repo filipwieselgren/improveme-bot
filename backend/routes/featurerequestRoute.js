@@ -8,6 +8,7 @@ const FeatureRequestModel = require("../models/FeatureRequest.js");
 const PartModel = require("../models/Parts.js");
 
 router.post("/featurerequest", async (req, res) => {
+  console.log(req.body);
   const featureFromBody = await req.body;
 
   const createFeatuRerequest = new FeatureRequestModel(featureFromBody);

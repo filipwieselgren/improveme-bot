@@ -3,8 +3,8 @@ const router = express.Router();
 const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
-app.use(bodyParser.json({ limit: "10mb", extended: true }));
-app.use(bodyParser.urlencoded({ limit: "10mb", extended: true }));
+app.use(bodyParser.json({ limit: "16mb", extended: true }));
+app.use(bodyParser.urlencoded({ limit: "16mb", extended: true }));
 
 app.use(cors());
 
@@ -12,7 +12,8 @@ const BugReportModel = require("../models/BugReport.js");
 const PartModel = require("../models/Parts.js");
 
 router.post("/bugreport", async (req, res) => {
-  const bugFromBody = await req.body;
+  const bugFromBody = req.body;
+
   const createBugReport = new BugReportModel(bugFromBody);
 
   await createBugReport.save();
