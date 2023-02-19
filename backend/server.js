@@ -4,6 +4,8 @@ const app = require("./app");
 
 const DBKEY = process.env.MONGODBKEY;
 
-mongoose.connect(DBKEY).then(() => {
-  console.log("DB connected");
-});
+mongoose
+  .connect(DBKEY, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log("DB connected");
+  });

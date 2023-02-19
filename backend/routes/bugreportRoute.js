@@ -9,22 +9,12 @@ const cors = require("cors");
 app.use(cors());
 
 const BugReportModel = require("../models/BugReport.js");
-const PartModel = require("../models/Parts.js");
 
 router.post("/bugreport", async (req, res) => {
   const bugFromBody = req.body;
-
   const createBugReport = new BugReportModel(bugFromBody);
-
   await createBugReport.save();
-
-  const parts = await PartModel.findOne({ section: req.body.part });
-
-  parts.bugs.push(createBugReport);
-
-  await parts.save();
-
-  res.status(201).send({ parts, createBugReport });
+  res.status(201).send(createBugReport);
 });
 
 module.exports = router;

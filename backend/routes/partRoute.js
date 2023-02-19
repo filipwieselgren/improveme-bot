@@ -8,7 +8,6 @@ const PartModel = require("../models/Parts.js");
 
 router.get("/section", async (req, res) => {
   const getSections = await PartModel.find();
-
   res.status(200).send(getSections);
 });
 

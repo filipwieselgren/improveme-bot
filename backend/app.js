@@ -4,6 +4,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 app.use(bodyParser.json({ limit: "16mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "16mb", extended: true }));
+
 // app.get("/", (req, res) => {
 //   res.status(200).json({ message: "Hello from the server" });
 // });
