@@ -21,3 +21,8 @@ app.use("/api/v1", featurerequestRoute);
 app.use("/api/v1", bugreportRoute);
 app.use("/api/v1", generalimprovementRoute);
 app.use("/api/v1", partRoute);
+
+const port = 8080;
+app.listen(port, () => {
+  console.log(`App running on port ${port}`);
+});
