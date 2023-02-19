@@ -1,6 +1,6 @@
-@use "./pages/main/style/_mainMobile.scss";
 @use "./style/_mixins.scss" as m;
-@use "./pages/featureRequests/style/featureReguests";
+@use "./pages/main/_style-main.scss";
+@use "./pages/featureRequests/_style-feature-requests.scss";
 @use "./components/steps/style/steps";
 
 * {

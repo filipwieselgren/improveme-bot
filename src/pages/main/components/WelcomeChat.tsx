@@ -1,6 +1,6 @@
-import bug from "../../assets/bug.png";
-import feature from "../../assets/newFeature.png";
-import increase from "../../assets/increase.png";
+import bug from "../../../assets/bug.png";
+import feature from "../../../assets/newFeature.png";
+import increase from "../../../assets/increase.png";
 import ChatWrapper from "../../../components/wrappers/ChatWrapper";
 
 interface IWelcome {

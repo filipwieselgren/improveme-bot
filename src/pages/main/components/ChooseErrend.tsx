@@ -1,7 +1,7 @@
 import ChatWrapper from "../../../components/wrappers/ChatWrapper";
-import bug from "../../assets/bug.png";
-import feature from "../../assets/newFeature.png";
-import increase from "../../assets/increase.png";
+import bug from "../../../assets/bug.png";
+import feature from "../../../assets/newFeature.png";
+import increase from "../../../assets/increase.png";
 import { useEffect, useState } from "react";
 import Email from "../../featureRequests";
 import Success from "../../../components/text/Success";

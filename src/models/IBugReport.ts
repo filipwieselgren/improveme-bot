@@ -10,15 +10,6 @@ export interface IBugReport {
   assignedTo: string;
 }
 
-// export interface IFiles {
-//   lastModified: number;
-//   lastModifiedDate: string;
-//   name: string;
-//   size: number;
-//   type: string;
-//   webkitRelativePath: string;
-// }
-
 export interface IFile {
   file: string;
 }
