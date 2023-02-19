@@ -1,7 +1,7 @@
 import bug from "../../assets/bug.png";
 import feature from "../../assets/newFeature.png";
 import increase from "../../assets/increase.png";
-import ChatWrapper from "../../components/wrappers/ChatWrapper";
+import ChatWrapper from "../../../components/wrappers/ChatWrapper";
 
 interface IWelcome {
   setWelcomeChat: React.Dispatch<React.SetStateAction<boolean>>;
@@ -19,15 +19,15 @@ const WelcomeChat = (props: IWelcome) => {
 
       <ul className="errend-ul">
         <li className="errend-li">
-          <img src={bug} alt="image of a bug" className="errend-img" />
+          <img src={bug} alt="of a bug" className="errend-img" />
           <span> Report bugs</span>
         </li>
         <li className="errend-li">
-          <img src={feature} alt="image new feature" className="errend-img" />
+          <img src={feature} alt="of a new feature" className="errend-img" />
           <span> Send feature requests</span>
         </li>
         <li className="errend-li">
-          <img src={increase} alt="image of a bug" className="errend-img" />
+          <img src={increase} alt="of a bug" className="errend-img" />
           <span> Send ideas of generel improvments</span>
         </li>
       </ul>

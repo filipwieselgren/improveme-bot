@@ -1,7 +1,7 @@
 import logo from "../../assets/ImproveMe.png";
 import { useState } from "react";
-import WelcomeChat from "./WelcomeChat";
-import ChooseErrend from "./ChooseErrend";
+import WelcomeChat from "./components/WelcomeChat";
+import ChooseErrend from "./components/ChooseErrend";
 
 const Main = () => {
   const [welcomeChat, setWelcomeChat] = useState(true);
@@ -19,7 +19,7 @@ const Main = () => {
         {errend ? <ChooseErrend /> : <></>}
 
         <div className="logo-wrapper" onClick={chooseErrend}>
-          <img src={logo} alt="Logo image" />
+          <img src={logo} alt="Logo" />
         </div>
       </div>
     </>

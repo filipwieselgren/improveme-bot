@@ -1,19 +1,19 @@
-import ChatWrapper from "../../components/wrappers/ChatWrapper";
+import ChatWrapper from "../../../components/wrappers/ChatWrapper";
 import bug from "../../assets/bug.png";
 import feature from "../../assets/newFeature.png";
 import increase from "../../assets/increase.png";
 import { useEffect, useState } from "react";
-import Email from "../featureRequests/Email";
-import Success from "../../components/text/Success";
-import IFeatureRequest from "../../models/IFeatureRequest";
-import StepOne from "../../components/steps/StepOne";
-import StepTwo from "../../components/steps/StepTwo";
-import StepThree from "../../components/steps/StepThree";
-import StepFour from "../../components/steps/StepFour";
-import StepFive from "../../components/steps/StepFive";
-import { IBugReport } from "../../models/IBugReport";
-import IGeneralImprovements from "../../models/IGeneralImprovements";
-import { IParts } from "../../models/IPart";
+import Email from "../../featureRequests";
+import Success from "../../../components/text/Success";
+import IFeatureRequest from "../../../models/IFeatureRequest";
+import StepOne from "../../../components/steps/StepOne";
+import StepTwo from "../../../components/steps/StepTwo";
+import StepThree from "../../../components/steps/StepThree";
+import StepFour from "../../../components/steps/StepFour";
+import StepFive from "../../../components/steps/StepFive";
+import { IBugReport } from "../../../models/IBugReport";
+import IGeneralImprovements from "../../../models/IGeneralImprovements";
+import { IParts } from "../../../models/IPart";
 
 const ChooseErrend = () => {
   const [fr, setFr] = useState(true);
